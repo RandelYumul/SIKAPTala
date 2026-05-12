@@ -1,7 +1,9 @@
 extends Node2D
 
+
 func _ready():
 	# Initial Fade Setup
+	get_tree().call_group("player", "set_physics_process", false)
 	$fade_transition.modulate.a = 1.0
 	$fade_transition.show()
 	$fade_transition/AnimationPlayer.play("fade_out")

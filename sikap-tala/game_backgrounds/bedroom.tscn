@@ -5,8 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://sostiknc7q7v" path="res://game_backgrounds/fade_transition.tscn" id="3_ct300"]
 [ext_resource type="PackedScene" uid="uid://dcaf236cqig03" path="res://character/alex.tscn" id="4_ct300"]
 [ext_resource type="PackedScene" uid="uid://cln88mwkrcnik" path="res://information/textbox.tscn" id="5_v5k21"]
+[ext_resource type="PackedScene" uid="uid://b8nj5gixpv23x" path="res://information/smaller_textbox.tscn" id="6_4xisu"]
 [ext_resource type="Script" uid="uid://cfew5jiaii8jl" path="res://game_backgrounds/area_2d.gd" id="6_uydt0"]
 [ext_resource type="FontFile" uid="uid://nlcknvwecnd8" path="res://fonts/8bitoperator_jve.ttf" id="7_mhkkq"]
+[ext_resource type="Script" uid="uid://diai01dn2y6ug" path="res://game_backgrounds/drawer.gd" id="8_ty0mw"]
+[ext_resource type="PackedScene" uid="uid://hrr8svi648co" path="res://information/bedroom_puzzle.tscn" id="10_u2upk"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ct300"]
 
@@ -79,6 +82,9 @@ size = Vector2(1179, 34)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mhkkq"]
 size = Vector2(45, 375)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4xisu"]
+size = Vector2(114, 122)
+
 [node name="bedroom" type="Node2D" unique_id=1318856281]
 script = ExtResource("1_06xkc")
 
@@ -138,8 +144,10 @@ shape = SubResource("RectangleShape2D_v5k21")
 disabled = true
 
 [node name="textbox" parent="." unique_id=288270788 instance=ExtResource("5_v5k21")]
-visible = false
 position = Vector2(-3, 3)
+
+[node name="smaller_textbox" parent="." unique_id=474257117 instance=ExtResource("6_4xisu")]
+position = Vector2(834, 338)
 
 [node name="door" type="Area2D" parent="." unique_id=519910357 groups=["player"]]
 script = ExtResource("6_uydt0")
@@ -150,14 +158,39 @@ shape = SubResource("RectangleShape2D_mhkkq")
 
 [node name="InteractionLabel" type="Label" parent="door" unique_id=760267866]
 z_index = 15
-offset_left = 22.0
-offset_top = 327.0
-offset_right = 47.0
-offset_bottom = 350.0
+offset_left = 12.0
+offset_top = 322.0
+offset_right = 65.0
+offset_bottom = 363.0
 theme_override_fonts/font = ExtResource("7_mhkkq")
+theme_override_font_sizes/font_size = 29
 text = "[E]"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="drawer" type="Area2D" parent="." unique_id=549726815]
+position = Vector2(37.5, 442.5)
+script = ExtResource("8_ty0mw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="drawer" unique_id=65834893]
+position = Vector2(553.5, 50.5)
+shape = SubResource("RectangleShape2D_4xisu")
+
+[node name="InteractionLabel" type="Label" parent="drawer" unique_id=1460863546]
+offset_left = 534.5
+offset_top = -11.5
+offset_right = 574.5
+offset_bottom = 11.5
+theme_override_fonts/font = ExtResource("7_mhkkq")
+theme_override_font_sizes/font_size = 29
+text = "[E]"
+
+[node name="bedroom_puzzle" parent="." unique_id=97602183 instance=ExtResource("10_u2upk")]
+visible = false
+z_index = 50
+position = Vector2(577, 322)
+
 [connection signal="body_entered" from="door" to="door" method="_on_body_entered"]
 [connection signal="body_exited" from="door" to="door" method="_on_body_exited"]
+[connection signal="body_entered" from="drawer" to="drawer" method="_on_body_entered"]
+[connection signal="body_exited" from="drawer" to="drawer" method="_on_body_exited"]

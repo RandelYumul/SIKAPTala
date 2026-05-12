@@ -1,33 +1,41 @@
 extends Area2D
 
 @onready var label = $InteractionLabel
-var player_nearby: bool = false
+var interact_count: int = 0 
 
 func _ready():
-	label.hide() # Keep the [E] hidden at start
+	label.hide()
+	add_to_group("door_group") # Safety for finding the node
 
 func _on_body_entered(body):
 	if body.is_in_group("player"):
-		player_nearby = true  
-		label.show() # Show [E] when close
+		label.show()
 
 func _on_body_exited(body):
 	if body.is_in_group("player"):
-		player_nearby = false
-		label.hide() # Hide [E] when leaving
+		label.hide()
 
 func _input(event):
-	# Check if player is close AND pressed E
-	if player_nearby and event.is_action_pressed("interact"):
+	if label.visible and event.is_action_pressed("interact"):
 		start_event()
 
 func start_event():
 	var img = load("res://assets/pixel_art/pixel_folder/alex.PNG")
-	
-	# This finds the textbox no matter where it is in your scene
 	var textbox = get_tree().get_first_node_in_group("textbox_group")
 	
-	if textbox:
-		textbox.start_chat(["The door is locked....", "Maybe there’s a key in the drawer."], img)
+	if not textbox: return
+
+	if interact_count == 0:
+		# Two messages, so we send a list of two images
+		textbox.start_chat(
+			["The door is locked...", "Maybe there’s a key in the drawer."], 
+			[img, img] 
+		)
 	else:
-		print("Error: Could not find the textbox node!")
+		# One message, so we send a list of one image
+		textbox.start_chat(
+			["Still locked. I need that key."], 
+			[img]
+		)
+	
+	interact_count += 1 

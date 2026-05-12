@@ -1,0 +1,131 @@
+[gd_scene format=3 uid="uid://hrr8svi648co"]
+
+[ext_resource type="Script" uid="uid://6py3fxyawb0a" path="res://information/bedroom_puzzle.gd" id="1_eubft"]
+[ext_resource type="Texture2D" uid="uid://5l2y45ekqo2t" path="res://assets/bedroom assets/Rectangle 17.png" id="1_n5pvk"]
+[ext_resource type="Texture2D" uid="uid://bdd33gsqe2ac7" path="res://assets/bedroom assets/Rectangle 18.png" id="2_gvgpu"]
+[ext_resource type="FontFile" uid="uid://nlcknvwecnd8" path="res://fonts/8bitoperator_jve.ttf" id="3_eubft"]
+[ext_resource type="FontFile" uid="uid://brj1lncwccwpn" path="res://fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="4_uueqs"]
+[ext_resource type="Texture2D" uid="uid://bjglj0nw7osr2" path="res://assets/bedroom assets/button-1.png.png" id="5_gvgpu"]
+[ext_resource type="Script" uid="uid://dcem78vaognl7" path="res://information/button_1_png.gd" id="6_uueqs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n5pvk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uueqs"]
+
+[node name="bedroom_puzzle" type="Node2D" unique_id=97602183]
+script = ExtResource("1_eubft")
+
+[node name="Rectangle17" type="Sprite2D" parent="." unique_id=1265479193]
+scale = Vector2(0.5530973, 0.55005264)
+texture = ExtResource("1_n5pvk")
+
+[node name="Rectangle18" type="Sprite2D" parent="." unique_id=244677490]
+position = Vector2(-366.00003, -4)
+scale = Vector2(0.6999999, 0.6999999)
+texture = ExtResource("2_gvgpu")
+
+[node name="Rectangle19" type="Sprite2D" parent="." unique_id=361612730]
+position = Vector2(-125, -3.9999998)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_gvgpu")
+
+[node name="Rectangle20" type="Sprite2D" parent="." unique_id=1398336807]
+position = Vector2(122, -3.9999998)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_gvgpu")
+
+[node name="Rectangle21" type="Sprite2D" parent="." unique_id=1911346915]
+position = Vector2(361.99997, -3)
+scale = Vector2(0.6999999, 0.6999999)
+texture = ExtResource("2_gvgpu")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1982697547]
+offset_left = -500.0
+offset_top = -248.0
+offset_right = 498.0
+offset_bottom = -169.0
+theme_override_fonts/normal_font = ExtResource("3_eubft")
+theme_override_font_sizes/normal_font_size = 26
+text = "Input Code"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="." unique_id=1971143590]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="code1" type="LineEdit" parent="Control" unique_id=108003116]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 0
+offset_left = -472.0
+offset_top = -152.0
+offset_right = -264.0
+offset_bottom = 144.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 0.6)
+theme_override_fonts/font = ExtResource("4_uueqs")
+theme_override_font_sizes/font_size = 65
+theme_override_styles/normal = SubResource("StyleBoxEmpty_n5pvk")
+placeholder_text = "-"
+alignment = 1
+
+[node name="code2" type="LineEdit" parent="Control" unique_id=2002786914]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 0
+offset_left = -224.0
+offset_top = -152.0
+offset_right = -16.0
+offset_bottom = 144.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 0.6)
+theme_override_fonts/font = ExtResource("4_uueqs")
+theme_override_font_sizes/font_size = 65
+theme_override_styles/normal = SubResource("StyleBoxEmpty_n5pvk")
+placeholder_text = "-"
+alignment = 1
+
+[node name="code3" type="LineEdit" parent="Control" unique_id=289192941]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 0
+offset_left = 16.0
+offset_top = -152.0
+offset_right = 224.0
+offset_bottom = 144.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 0.6)
+theme_override_fonts/font = ExtResource("4_uueqs")
+theme_override_font_sizes/font_size = 65
+theme_override_styles/normal = SubResource("StyleBoxEmpty_n5pvk")
+placeholder_text = "-"
+alignment = 1
+
+[node name="code4" type="LineEdit" parent="Control" unique_id=551834705]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 0
+offset_left = 256.0
+offset_top = -152.0
+offset_right = 464.0
+offset_bottom = 144.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 0.6)
+theme_override_fonts/font = ExtResource("4_uueqs")
+theme_override_font_sizes/font_size = 65
+theme_override_styles/normal = SubResource("StyleBoxEmpty_n5pvk")
+placeholder_text = "-"
+alignment = 1
+
+[node name="EnterButton" type="Button" parent="." unique_id=625428094]
+offset_left = -56.0
+offset_top = 160.00002
+offset_right = 112.0
+offset_bottom = 313.0
+scale = Vector2(0.6362069, 0.63620687)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_uueqs")
+icon = ExtResource("5_gvgpu")
+script = ExtResource("6_uueqs")
