@@ -139,6 +139,7 @@ offset_bottom = 92.3533
 text = "WASH YOUR FACE"
 label_settings = SubResource("LabelSettings_dia5y")
 uppercase = true
+metadata/_edit_use_anchors_ = true
 
 [node name="E to interact" type="Label" parent="event_trigger/WashFaceOption" unique_id=683678180]
 offset_left = 105.07135
@@ -148,8 +149,10 @@ offset_bottom = 32.706596
 text = "[E]"
 label_settings = SubResource("LabelSettings_dia5y")
 uppercase = true
+metadata/_edit_use_anchors_ = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=647542151]
+visible = false
 position = Vector2(583, 325)
 
 [node name="MothersVoice" type="Label" parent="." unique_id=168553055]
@@ -162,5 +165,6 @@ label_settings = SubResource("LabelSettings_4wjle")
 autowrap_mode = 3
 autowrap_trim_flags = 128
 script = SubResource("GDScript_83h1y")
+metadata/_edit_use_anchors_ = true
 
 [connection signal="body_entered" from="event_trigger" to="alex" method="_on_event_trigger_body_entered"]

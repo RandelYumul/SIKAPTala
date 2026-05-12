@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bji2jrhrgv6bi"]
+
+[ext_resource type="Texture2D" uid="uid://dof7abnm32hag" path="res://assets/pixel_art/pixel_folder/normal_bathroom.png" id="1_8n3id"]
+
+[node name="SuccessBathroom" type="Node2D" unique_id=1374624121]
+
+[node name="NormalBathroom" type="Sprite2D" parent="." unique_id=2061383685]
+position = Vector2(575.5, 336.25)
+scale = Vector2(0.559082, 0.5776909)
+texture = ExtResource("1_8n3id")

@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://c451w4mfa3p73"]
+
+[ext_resource type="Texture2D" uid="uid://c774mhlfwgndy" path="res://assets/pixel_art/pixel_folder/glitch_bathroom.png" id="1_sh4v7"]
+[ext_resource type="Texture2D" uid="uid://rv2mn5hteoia" path="res://assets/pixel_art/pixel_folder/mirror.png" id="2_bfcjb"]
+[ext_resource type="Texture2D" uid="uid://cul8dkmux536m" path="res://assets/pixel_art/pixel_folder/list.png" id="3_28s5o"]
+[ext_resource type="FontFile" uid="uid://cxhcp1dw18vpi" path="res://fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="4_mn20l"]
+
+[sub_resource type="GDScript" id="GDScript_bfcjb"]
+script/source = "extends Node2D
+
+@export var arrow_textures: Dictionary = {
+	\"UP\": preload(\"res://assets/pixel_art/pixel_folder/ArrowUp.png\"),
+	\"DOWN\": preload(\"res://assets/pixel_art/pixel_folder/ArrowDown.png\"),
+	\"LEFT\": preload(\"res://assets/pixel_art/pixel_folder/ArrowLeft.png\"),
+	\"RIGHT\": preload(\"res://assets/pixel_art/pixel_folder/ArrowRight.png\")
+}
+
+@export var interval: float = 1.5
+@export var score_needed: int = 7
+
+var expected := \"\"
+var score := 0
+var total := 0
+
+func _ready() -> void:
+	_show_new_arrow()
+	var timer := Timer.new()
+	timer.wait_time = interval
+	timer.autostart = true
+	timer.one_shot = false
+	add_child(timer)
+	timer.connect(\"timeout\", Callable(self, \"_on_timer_timeout\"))
+
+func _show_new_arrow() -> void:
+	var options = [\"UP\", \"DOWN\", \"LEFT\", \"RIGHT\"]
+	expected = options[randi() % options.size()]
+	$PromptArrow.texture = arrow_textures[expected]
+	$InputArrow.texture = null  # clear previous input
+
+func _on_timer_timeout() -> void:
+	total += 1
+	_show_new_arrow()
+	if total >= 10:
+		_end_round()
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed(\"ui_up\"):
+		$InputArrow.texture = arrow_textures[\"UP\"]
+		if expected == \"UP\": score += 1
+	elif Input.is_action_just_pressed(\"ui_down\"):
+		$InputArrow.texture = arrow_textures[\"DOWN\"]
+		if expected == \"DOWN\": score += 1
+	elif Input.is_action_just_pressed(\"ui_left\"):
+		$InputArrow.texture = arrow_textures[\"LEFT\"]
+		if expected == \"LEFT\": score += 1
+	elif Input.is_action_just_pressed(\"ui_right\"):
+		$InputArrow.texture = arrow_textures[\"RIGHT\"]
+		if expected == \"RIGHT\": score += 1
+
+func _end_round() -> void:
+	if score >= score_needed:
+		get_tree().change_scene_to_file(\"res://Levels/SuccessBathroom.tscn\")
+	else:
+		get_tree().change_scene_to_file(\"res://Levels/FailureBathroom.tscn\")
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_u76p4"]
+font = ExtResource("4_mn20l")
+font_color = Color(0, 0, 0, 1)
+
+[node name="glitch_bath_game" type="Node2D" unique_id=318375289]
+script = SubResource("GDScript_bfcjb")
+
+[node name="GlitchBathroom" type="Sprite2D" parent="." unique_id=2005497261]
+position = Vector2(575, 322)
+scale = Vector2(0.5610351, 0.5572917)
+texture = ExtResource("1_sh4v7")
+
+[node name="Mirror" type="Sprite2D" parent="." unique_id=994881364]
+position = Vector2(726, 309.00003)
+rotation = 0.015707964
+scale = Vector2(0.30996606, 0.33511865)
+texture = ExtResource("2_bfcjb")
+
+[node name="Instructions" type="Sprite2D" parent="." unique_id=1915890857]
+position = Vector2(221, 309)
+scale = Vector2(0.45633563, 0.45519164)
+texture = ExtResource("3_28s5o")
+
+[node name="RichTextLabel" type="Label" parent="." unique_id=1915590675]
+offset_left = 127.0
+offset_top = 173.0
+offset_right = 332.0
+offset_bottom = 423.0
+text = "Match your 
+reflection’s 
+movements exactly.
+
+Move with arrow keys. 
+Watch the mirror.
+Copy the reflection’s 
+timing precisely.
+
+Stay synchronized DO NOT
+lag behind or act early."
+label_settings = SubResource("LabelSettings_u76p4")
+
+[node name="PromptArrow" type="Sprite2D" parent="." unique_id=2118979282]
+position = Vector2(615, 287)
+
+[node name="InputArrow" type="Sprite2D" parent="." unique_id=1826707837]
+position = Vector2(885, 296)

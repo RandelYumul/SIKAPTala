@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dhouc7cxjyi0t"]
+
+[ext_resource type="Texture2D" uid="uid://2ugegpbi7f4l" path="res://assets/pixel_art/pixel_folder/chaos_bathroom.png" id="1_q43mh"]
+
+[node name="FailureBathroom" type="Node2D" unique_id=165664511]
+
+[node name="ChaosBathroom" type="Sprite2D" parent="." unique_id=1865794703]
+position = Vector2(577, 351)
+scale = Vector2(0.5576172, 0.59375)
+texture = ExtResource("1_q43mh")

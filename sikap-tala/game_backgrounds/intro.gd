@@ -1,15 +1,15 @@
 extends AnimatedSprite2D
 
 # 1. Path to your next scene
-var intro_redirect_path = "res://game_backgrounds/disclaimer.tscn"
+var intro_redirect_path = "res://Levels/glitch_bathroom.tscn"
 
 func _ready() -> void:
 	# 2. Start the animation
 	play("default") 
 	
-	# 3. Create a one-shot timer for 5 seconds
-	# This tells Godot: "Wait 5 seconds, then continue"
-	await get_tree().create_timer(5.0).timeout
+	# 3. Create a one-shot timer for 2 seconds
+	# This tells Godot: "Wait 2 seconds, then continue"
+	await get_tree().create_timer(2.0).timeout
 	
 	# 4. Change the scene
 	change_scene()
