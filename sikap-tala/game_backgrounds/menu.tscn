@@ -1,17 +1,21 @@
 [gd_scene format=3 uid="uid://03wfntj6p2r2"]
 
-[ext_resource type="Texture2D" uid="uid://cptgx5gcu8a71" path="res://assets/Pixel Art Assets-20260512T045118Z-3-001/Pixel Art Assets/normal_livingroom.png" id="1_58wkk"]
 [ext_resource type="Script" uid="uid://ci0s63w4x6jsr" path="res://game_backgrounds/menu.gd" id="1_r7v6x"]
 [ext_resource type="Script" uid="uid://b4tq55gso0gs1" path="res://game_backgrounds/main_menu.gd" id="2_t1bg3"]
 [ext_resource type="PackedScene" uid="uid://sostiknc7q7v" path="res://game_backgrounds/fade_transition.tscn" id="3_t1bg3"]
+[ext_resource type="Texture2D" uid="uid://d0g874efspug" path="res://assets/textbox assets/start.png" id="4_lg58n"]
+[ext_resource type="Texture2D" uid="uid://cq7wlaj6pb130" path="res://assets/textbox assets/Settings.png" id="5_0lmkw"]
+[ext_resource type="Texture2D" uid="uid://yv48gi8qopjm" path="res://assets/textbox assets/Quit.png" id="6_2vwqj"]
+[ext_resource type="Texture2D" uid="uid://cjb5y3fg0cb7h" path="res://assets/filler/shifted.png" id="7_e3a7b"]
 
 [node name="menu" type="Node2D" unique_id=587724797]
 script = ExtResource("1_r7v6x")
 
-[node name="NormalLivingroom" type="Sprite2D" parent="." unique_id=967225396]
-position = Vector2(576.5, 326.5)
-scale = Vector2(0.5600586, 0.5633681)
-texture = ExtResource("1_58wkk")
+[node name="Shifted" type="Sprite2D" parent="." unique_id=1573702708]
+z_index = -2
+position = Vector2(576.75, 324.25)
+scale = Vector2(0.56225586, 0.56293404)
+texture = ExtResource("7_e3a7b")
 
 [node name="fade_transition" parent="." unique_id=488117941 instance=ExtResource("3_t1bg3")]
 
@@ -24,29 +28,32 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="start_day" type="Button" parent="main_menu/Control" unique_id=98906190]
-layout_mode = 0
-offset_left = 66.0
-offset_top = 319.0
-offset_right = 238.0
-offset_bottom = 381.0
-text = "Start Day"
-
-[node name="settings" type="Button" parent="main_menu/Control" unique_id=607842662]
+[node name="start_day" type="TextureButton" parent="main_menu/Control" unique_id=459855051]
 layout_mode = 0
 offset_left = 65.0
-offset_top = 394.0
-offset_right = 237.0
-offset_bottom = 456.0
-text = "Settings"
+offset_top = 303.0
+offset_right = 514.0
+offset_bottom = 470.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("4_lg58n")
 
-[node name="quit" type="Button" parent="main_menu/Control" unique_id=352281529]
+[node name="settings" type="TextureButton" parent="main_menu/Control" unique_id=2013803775]
 layout_mode = 0
-offset_left = 66.0
+offset_left = 65.0
+offset_top = 385.0
+offset_right = 514.0
+offset_bottom = 552.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("5_0lmkw")
+
+[node name="quit" type="TextureButton" parent="main_menu/Control" unique_id=1991212212]
+layout_mode = 0
+offset_left = 65.0
 offset_top = 472.0
-offset_right = 236.0
-offset_bottom = 532.0
-text = "Quit"
+offset_right = 514.0
+offset_bottom = 639.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("6_2vwqj")
 
 [node name="fade_transition" parent="main_menu" unique_id=885321898 instance=ExtResource("3_t1bg3")]
 visible = false

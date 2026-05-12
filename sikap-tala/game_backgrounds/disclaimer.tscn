@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://den0x20373ao1"]
+
+[ext_resource type="FontFile" uid="uid://nlcknvwecnd8" path="res://fonts/8bitoperator_jve.ttf" id="1_7l700"]
+[ext_resource type="Script" uid="uid://cq65ryq3vu8g7" path="res://game_backgrounds/disclaimer.gd" id="1_wb6vb"]
+
+[sub_resource type="Animation" id="Animation_wb6vb"]
+resource_name = "Continue"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.54),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_ecvg3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u3rbp"]
+_data = {
+&"Continue": SubResource("Animation_wb6vb"),
+&"RESET": SubResource("Animation_ecvg3")
+}
+
+[node name="Disclaimer" type="ColorRect" unique_id=1859140629]
+offset_right = 1149.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_wb6vb")
+
+[node name="Disclaimer" type="RichTextLabel" parent="." unique_id=1717983767]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 3.0
+offset_right = 1147.0
+offset_bottom = 580.0
+theme_override_fonts/normal_font = ExtResource("1_7l700")
+theme_override_font_sizes/normal_font_size = 35
+text = "This experience contains themes of memory 
+distortion, identity fragmentation, and 
+emotional trauma."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CONTINUE" type="RichTextLabel" parent="." unique_id=906056015]
+visible = false
+layout_mode = 0
+offset_top = 358.0
+offset_right = 1147.0
+offset_bottom = 452.0
+theme_override_fonts/normal_font = ExtResource("1_7l700")
+theme_override_font_sizes/normal_font_size = 35
+text = "CONTINUE
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1077919300]
+root_node = NodePath("../CONTINUE")
+libraries/ = SubResource("AnimationLibrary_u3rbp")
+autoplay = &"Continue"

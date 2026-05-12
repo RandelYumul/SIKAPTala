@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://kvok2vdcjsoi"]
 
 [ext_resource type="Script" uid="uid://br5bxmg2p1qh3" path="res://game_backgrounds/blackscreen.gd" id="1_h78vb"]
-[ext_resource type="PackedScene" uid="uid://blqiswnsy5uh7" path="res://game_assets/instructions.tscn" id="2_ob7lv"]
+[ext_resource type="PackedScene" uid="uid://blqiswnsy5uh7" path="res://information/instructions.tscn" id="2_ob7lv"]
 [ext_resource type="FontFile" uid="uid://nlcknvwecnd8" path="res://fonts/8bitoperator_jve.ttf" id="3_mlp74"]
 
 [sub_resource type="Animation" id="Animation_4ybdp"]

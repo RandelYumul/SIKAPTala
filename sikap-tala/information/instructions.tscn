@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://blqiswnsy5uh7"]
+
+[ext_resource type="Texture2D" uid="uid://crxpxyhlpfvk8" path="res://assets/pixel_art/pixel_folder/instructions.png" id="1_lausp"]
+
+[node name="instructions" type="Node2D" unique_id=1147670647]
+
+[node name="Instructions" type="Sprite2D" parent="." unique_id=191565004]
+scale = Vector2(0.57339954, 0.6287458)
+texture = ExtResource("1_lausp")

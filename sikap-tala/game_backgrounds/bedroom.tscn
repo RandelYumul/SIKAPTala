@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://di8jhra8wwhcs"]
 
 [ext_resource type="Script" uid="uid://bjnyntjl8j8g3" path="res://game_backgrounds/bedroom.gd" id="1_06xkc"]
-[ext_resource type="Texture2D" uid="uid://de3i1m8ue4k70" path="res://assets/Pixel Art Assets-20260512T045118Z-3-001/Pixel Art Assets/normal_bedroom.png" id="1_kx5ap"]
+[ext_resource type="Texture2D" uid="uid://de3i1m8ue4k70" path="res://assets/pixel_art/pixel_folder/normal_bedroom.png" id="1_kx5ap"]
 [ext_resource type="PackedScene" uid="uid://sostiknc7q7v" path="res://game_backgrounds/fade_transition.tscn" id="3_ct300"]
 [ext_resource type="PackedScene" uid="uid://dcaf236cqig03" path="res://character/alex.tscn" id="4_ct300"]
+[ext_resource type="PackedScene" uid="uid://cln88mwkrcnik" path="res://information/textbox.tscn" id="5_v5k21"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ct300"]
 
@@ -76,10 +77,10 @@ size = Vector2(1179, 34)
 [node name="bedroom" type="Node2D" unique_id=1318856281]
 script = ExtResource("1_06xkc")
 
-[node name="alex" parent="." unique_id=895170818 instance=ExtResource("4_ct300")]
+[node name="alex" parent="." unique_id=895170818 groups=["player"] instance=ExtResource("4_ct300")]
 visible = false
 z_index = 1
-position = Vector2(99, 454)
+position = Vector2(664, 464)
 
 [node name="bed" type="StaticBody2D" parent="." unique_id=1339424466]
 physics_material_override = SubResource("PhysicsMaterial_ct300")
@@ -130,3 +131,6 @@ disabled = true
 position = Vector2(577, 666)
 shape = SubResource("RectangleShape2D_v5k21")
 disabled = true
+
+[node name="textbox" parent="." unique_id=288270788 instance=ExtResource("5_v5k21")]
+position = Vector2(-3, 3)
