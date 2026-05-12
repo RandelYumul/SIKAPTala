@@ -18,7 +18,7 @@ outline_color = Color(0, 0, 0, 1)
 [sub_resource type="GDScript" id="GDScript_tq82a"]
 script/source = "extends Label
 
-@export var next_scene: String = \"res://NextScene.tscn\"
+@export var next_scene: String = \"res://Levels/glitch_bath_game.tscn\"
 
 func _ready() -> void:
 	hide() # start hidden
@@ -40,12 +40,12 @@ func _ready() -> void:
 script = SubResource("GDScript_1ivt6")
 
 [node name="GlitchBathroom" type="Sprite2D" parent="." unique_id=604687457]
-position = Vector2(577.5, 341)
-scale = Vector2(0.5649414, 0.5850695)
+position = Vector2(575.75, 326.99997)
+scale = Vector2(0.55883783, 0.5642361)
 texture = ExtResource("1_yoxw6")
 
 [node name="Glitchwashface" type="Sprite2D" parent="." unique_id=1508836766]
-position = Vector2(572, 406.00003)
+position = Vector2(569, 377.00003)
 scale = Vector2(0.5929825, 0.58551884)
 texture = ExtResource("2_75sli")
 
@@ -60,22 +60,16 @@ offset_bottom = 413.0
 rotation = 0.061086524
 
 [node name="Glitchreflection" type="Sprite2D" parent="Control" unique_id=458129189]
-position = Vector2(170.3023, 179.9389)
-rotation = -0.02617994
-scale = Vector2(0.6280449, 0.6263378)
+position = Vector2(185.57771, 160.42928)
+rotation = 0.04363323
+scale = Vector2(0.65854657, 0.66424376)
 texture = ExtResource("3_tq82a")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=329255740]
-position = Vector2(3.0000005, -55.000008)
-rotation = 0.034906585
-scale = Vector2(0.6280449, 0.6263379)
-anchor_mode = 0
-
 [node name="MothersVoice" type="Label" parent="." unique_id=113976575]
-offset_left = 106.0
-offset_top = 606.0
-offset_right = 1081.0
-offset_bottom = 647.0
+offset_left = 112.0
+offset_top = 582.0
+offset_right = 1087.0
+offset_bottom = 623.0
 text = "Mother’s Voice: “Are you… still there?” You shouldn’t look too long."
 label_settings = SubResource("LabelSettings_1ivt6")
 script = SubResource("GDScript_tq82a")

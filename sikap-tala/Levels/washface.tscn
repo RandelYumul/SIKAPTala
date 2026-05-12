@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://7ymuafbikhnp"]
 
-[ext_resource type="Script" uid="uid://ciyp8cwwusrmo" path="res://game_backgrounds/intro.gd" id="1_exb41"]
+[ext_resource type="Script" uid="uid://ckjs82e6xgjx7" path="res://Levels/washface.gd" id="1_ypcve"]
 [ext_resource type="Texture2D" uid="uid://cdkxi0fp5q5ym" path="res://assets/gif/frame_00_delay-0.06s.png" id="2_ir4lf"]
 [ext_resource type="Texture2D" uid="uid://dhh65tfykmhj6" path="res://assets/gif/frame_01_delay-0.06s.png" id="3_3xcao"]
 [ext_resource type="Texture2D" uid="uid://bbq84elwmecc0" path="res://assets/gif/frame_02_delay-0.06s.png" id="4_4jcr2"]
@@ -240,6 +240,30 @@ tracks/17/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("../Node2D/Shifted:visible")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("../Node2D/RichTextLabel:visible")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_mqnyl"]
 resource_name = "intro"
@@ -465,6 +489,30 @@ tracks/17/keys = {
 [sub_resource type="Animation" id="Animation_tgyy3"]
 resource_name = "title"
 length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Node2D/Shifted:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.99),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Node2D/RichTextLabel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.72),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mtl8i"]
 _data = {
@@ -473,14 +521,14 @@ _data = {
 &"title": SubResource("Animation_tgyy3")
 }
 
-[node name="intro" type="AnimatedSprite2D" unique_id=682325854]
+[node name="washface" type="AnimatedSprite2D" unique_id=682325854]
 sprite_frames = SubResource("SpriteFrames_et6qv")
 frame_progress = 0.33333334
-script = ExtResource("1_exb41")
+script = ExtResource("1_ypcve")
 
 [node name="Frame00Delay0_06s" type="Sprite2D" parent="." unique_id=1573916183]
 visible = false
-position = Vector2(581, 400)
+position = Vector2(576, 324)
 scale = Vector2(1.528, 1.5308057)
 texture = ExtResource("2_ir4lf")
 
@@ -492,19 +540,19 @@ texture = ExtResource("3_3xcao")
 
 [node name="Frame02Delay0_06s" type="Sprite2D" parent="." unique_id=470018214]
 visible = false
-position = Vector2(578.00006, 379)
+position = Vector2(578, 326.408)
 scale = Vector2(1.528, 1.528)
 texture = ExtResource("4_4jcr2")
 
 [node name="Frame03Delay0_06s" type="Sprite2D" parent="." unique_id=1198890992]
 visible = false
-position = Vector2(575.00006, 376)
+position = Vector2(578, 326.408)
 scale = Vector2(1.528, 1.528)
 texture = ExtResource("5_dmfof")
 
 [node name="Frame04Delay0_06s" type="Sprite2D" parent="." unique_id=1303130622]
 visible = false
-position = Vector2(589.00006, 382)
+position = Vector2(578, 326.408)
 scale = Vector2(1.528, 1.528)
 texture = ExtResource("6_6yu2a")
 
@@ -590,7 +638,3 @@ texture = ExtResource("19_48vcw")
 root_node = NodePath("../Frame00Delay0_06s")
 libraries/ = SubResource("AnimationLibrary_mtl8i")
 autoplay = &"intro"
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1552277301]
-position = Vector2(580, 351)
-zoom = Vector2(1.5, 1.5)

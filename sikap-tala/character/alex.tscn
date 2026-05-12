@@ -71,6 +71,11 @@ animations = [{
 "loop": true,
 "name": &"idle_right",
 "speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wnwdv"]
@@ -80,11 +85,10 @@ size = Vector2(846.5758, 919.28784)
 script = ExtResource("1_wnwdv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1303580187]
-position = Vector2(-15.00001, 0.50001115)
+position = Vector2(-6.0000095, 0.50001115)
 scale = Vector2(0.20262097, 0.19304436)
 sprite_frames = SubResource("SpriteFrames_dh7qe")
 animation = &"idle_right"
-frame_progress = 0.90171295
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=320746243]
 position = Vector2(-11.500001, 85.5)
