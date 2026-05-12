@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dcaf236cqig03"]
 
-[ext_resource type="Script" uid="uid://cdmenrou7mmle" path="res://alex.gd" id="1_wnwdv"]
+[ext_resource type="Script" uid="uid://cdmenrou7mmle" path="res://Levels/alex.gd" id="1_wnwdv"]
 [ext_resource type="Texture2D" uid="uid://b8bc3jbwk5uia" path="res://assets/pixel_art/pixel_folder/alex.PNG" id="2_hhqhk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bp5mu"]

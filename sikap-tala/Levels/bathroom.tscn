@@ -1,0 +1,166 @@
+[gd_scene format=3 uid="uid://hi2h1uwt34t8"]
+
+[ext_resource type="Texture2D" uid="uid://dof7abnm32hag" path="res://assets/pixel_art/pixel_folder/normal_bathroom.png" id="1_5vvdw"]
+[ext_resource type="PackedScene" uid="uid://dcaf236cqig03" path="res://character/alex.tscn" id="2_7mpqe"]
+[ext_resource type="Script" uid="uid://dhffok0ghhiw6" path="res://Levels/wash_face_option.gd" id="3_rrbgl"]
+[ext_resource type="FontFile" uid="uid://nlcknvwecnd8" path="res://fonts/8bitoperator_jve.ttf" id="4_6u0ya"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0ykx7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qb7wk"]
+size = Vector2(136, 635)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dia5y"]
+size = Vector2(1154.75, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mvg5p"]
+size = Vector2(476.75, 650.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_83h1y"]
+size = Vector2(1151, 15)
+
+[sub_resource type="GDScript" id="GDScript_dia5y"]
+script/source = "extends Area2D
+
+var player_inside := false
+
+func _ready() -> void:
+	connect(\"body_entered\", Callable(self, \"_on_body_entered\"))
+	connect(\"body_exited\", Callable(self, \"_on_body_exited\"))
+
+func _on_body_entered(body: Node) -> void:
+	if body.is_in_group(\"Player\"):
+		player_inside = true
+		$WashFaceOption.show()
+
+func _on_body_exited(body: Node) -> void:
+	if body.is_in_group(\"Player\"):
+		player_inside = false
+		$WashFaceOption.hide()
+
+func _process(delta: float) -> void:
+	if player_inside and Input.is_action_just_pressed(\"interact\"): # \"interact\" = E key
+		# Example: go to next scene
+		get_tree().change_scene_to_file(\"res://Levels/washface.tscn\")
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mc4l1"]
+size = Vector2(740.1565, 349.78558)
+
+[sub_resource type="GDScript" id="GDScript_mvg5p"]
+script/source = "extends CollisionShape2D
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_dia5y"]
+font = ExtResource("4_6u0ya")
+font_size = 71
+font_color = Color(1.0853333, 1.0853335, 1.0853333, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4wjle"]
+font = ExtResource("4_6u0ya")
+font_size = 52
+font_color = Color(0.063202, 0.063202, 0.063202, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 0)
+
+[sub_resource type="GDScript" id="GDScript_83h1y"]
+script/source = "extends Label
+
+var has_shown := false
+
+func _ready() -> void:
+	if not has_shown:
+		has_shown = true
+		hide()
+		await get_tree().create_timer(1.0).timeout
+		show()
+		await get_tree().create_timer(2.0).timeout
+		hide()
+"
+
+[node name="Bathroom" type="Node2D" unique_id=43325698]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1069707861]
+position = Vector2(582.00006, 323)
+scale = Vector2(0.56152344, 0.5503472)
+texture = ExtResource("1_5vvdw")
+
+[node name="alex" parent="." unique_id=1752237224 instance=ExtResource("2_7mpqe")]
+position = Vector2(229, 454)
+
+[node name="Boundary" type="StaticBody2D" parent="." unique_id=656378094]
+modulate = Color(0.06666667, 1, 1, 1)
+top_level = true
+position = Vector2(-1044, -577)
+disable_mode = 1
+physics_material_override = SubResource("PhysicsMaterial_0ykx7")
+constant_linear_velocity = Vector2(1, 0)
+
+[node name="left" type="CollisionShape2D" parent="Boundary" unique_id=217125418]
+position = Vector2(1113, 889.5)
+shape = SubResource("RectangleShape2D_qb7wk")
+
+[node name="bottom" type="CollisionShape2D" parent="Boundary" unique_id=108039402]
+position = Vector2(1631.375, 1211)
+shape = SubResource("RectangleShape2D_dia5y")
+
+[node name="right" type="CollisionShape2D" parent="Boundary" unique_id=37931667]
+position = Vector2(1956.625, 901)
+shape = SubResource("RectangleShape2D_mvg5p")
+
+[node name="top" type="CollisionShape2D" parent="Boundary" unique_id=1472799645]
+position = Vector2(1619.5, 574.5)
+shape = SubResource("RectangleShape2D_83h1y")
+
+[node name="event_trigger" type="Area2D" parent="." unique_id=364439111]
+position = Vector2(577, 407.99997)
+scale = Vector2(0.56152344, 0.5503472)
+script = SubResource("GDScript_dia5y")
+
+[node name="wash" type="CollisionShape2D" parent="event_trigger" unique_id=1271511007]
+position = Vector2(231.51303, 159.89914)
+scale = Vector2(0.9999998, 1)
+shape = SubResource("RectangleShape2D_mc4l1")
+debug_color = Color(0.8684118, 0.28450227, 0.540592, 0.41960785)
+script = SubResource("GDScript_mvg5p")
+
+[node name="WashFaceOption" type="CanvasGroup" parent="event_trigger" unique_id=1702583615]
+position = Vector2(94.38609, 107.2051)
+scale = Vector2(0.99999994, 1)
+script = ExtResource("3_rrbgl")
+
+[node name="WashYourFace" type="Label" parent="event_trigger/WashFaceOption" unique_id=1211325678]
+offset_left = -40.959988
+offset_top = 16.353306
+offset_right = 385.04
+offset_bottom = 92.3533
+text = "WASH YOUR FACE"
+label_settings = SubResource("LabelSettings_dia5y")
+uppercase = true
+
+[node name="E to interact" type="Label" parent="event_trigger/WashFaceOption" unique_id=683678180]
+offset_left = 105.07135
+offset_top = -67.23029
+offset_right = 208.3619
+offset_bottom = 32.706596
+text = "[E]"
+label_settings = SubResource("LabelSettings_dia5y")
+uppercase = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=647542151]
+position = Vector2(583, 325)
+
+[node name="MothersVoice" type="Label" parent="." unique_id=168553055]
+offset_left = 318.0
+offset_top = 29.0
+offset_right = 797.0
+offset_bottom = 194.0
+text = "Mother's Voice: \"Don't forget to stay calm today\""
+label_settings = SubResource("LabelSettings_4wjle")
+autowrap_mode = 3
+autowrap_trim_flags = 128
+script = SubResource("GDScript_83h1y")
+
+[connection signal="body_entered" from="event_trigger" to="alex" method="_on_event_trigger_body_entered"]
