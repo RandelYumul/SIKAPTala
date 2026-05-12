@@ -8,11 +8,11 @@ z_index = 5
 script = ExtResource("1_isop3")
 
 [node name="sugar" type="Sprite2D" parent="." unique_id=1819248581]
-position = Vector2(-31, 37)
-scale = Vector2(0.74590164, 0.7380952)
+position = Vector2(57, 43.125)
+scale = Vector2(0.5737705, 0.55586076)
 texture = ExtResource("1_qqbie")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1543386914]
-position = Vector2(-33, 36)
-scale = Vector2(0.7797339, 0.79382026)
+position = Vector2(59, 45.000004)
+scale = Vector2(0.5495746, 0.6001086)
 polygon = PackedVector2Array(53, -36, -17, -74, -96, -38, -98, 54, -21, 96, 57, 57)

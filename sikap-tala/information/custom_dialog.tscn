@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://dtr2eehy7e3tc"]
+
+[ext_resource type="Script" uid="uid://2hdq41vhshto" path="res://information/custom_dialog.gd" id="1_05528"]
+[ext_resource type="FontFile" uid="uid://nlcknvwecnd8" path="res://fonts/8bitoperator_jve.ttf" id="2_k1ype"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_05528"]
+bg_color = Color(0.9098039, 0.9019608, 0.88235295, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+anti_aliasing = false
+
+[node name="CustomDialog" type="CanvasLayer" unique_id=471688608]
+script = ExtResource("1_05528")
+
+[node name="DialogBox" type="Panel" parent="." unique_id=1367847465]
+offset_right = 549.0
+offset_bottom = 105.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_05528")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DialogBox" unique_id=2011690897]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Portrait" type="TextureRect" parent="DialogBox/HBoxContainer" unique_id=436917193]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 4
+expand_mode = 1
+
+[node name="DialogText" type="RichTextLabel" parent="DialogBox/HBoxContainer" unique_id=966203051]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_k1ype")
+theme_override_font_sizes/normal_font_size = 34

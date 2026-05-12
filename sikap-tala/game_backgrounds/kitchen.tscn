@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://cdiscee6wr5gt"]
 
-[ext_resource type="Texture2D" uid="uid://c23ytk6q6bqkf" path="res://assets/Pixel Art Assets-20260512T045118Z-3-001/Pixel Art Assets/normal_kitchen.png" id="1_fostl"]
+[ext_resource type="Texture2D" uid="uid://c23ytk6q6bqkf" path="res://assets/pixel_art/pixel_folder/normal_kitchen.png" id="1_fostl"]
+[ext_resource type="Script" uid="uid://nyg7ng08hgxm" path="res://game_backgrounds/kitchen_scene.gd" id="1_idgpa"]
 [ext_resource type="PackedScene" uid="uid://dcaf236cqig03" path="res://character/alex.tscn" id="1_oy172"]
+[ext_resource type="Texture2D" uid="uid://b8bc3jbwk5uia" path="res://assets/pixel_art/pixel_folder/alex.PNG" id="2_yk5wx"]
 [ext_resource type="Texture2D" uid="uid://c1m4088x6m8er" path="res://assets/kitchen assets/desk-.png" id="3_xahmg"]
 [ext_resource type="Texture2D" uid="uid://d3lrixcb7h1h8" path="res://assets/kitchen assets/scoll close.png" id="4_3uuk0"]
 [ext_resource type="Script" uid="uid://was2tg3l6iqj" path="res://game_backgrounds/scroll_item.gd" id="4_5edak"]
@@ -11,9 +13,11 @@
 [ext_resource type="PackedScene" uid="uid://ciortvg0swdjm" path="res://game_backgrounds/bubble_item.tscn" id="5_rt2t2"]
 [ext_resource type="Texture2D" uid="uid://d28j8nv7hq8it" path="res://assets/kitchen assets/scroll open.png" id="5_wb7ax"]
 [ext_resource type="Texture2D" uid="uid://dsayjgauunfyv" path="res://assets/kitchen assets/clock.png" id="9_717bs"]
+[ext_resource type="FontFile" uid="uid://nlcknvwecnd8" path="res://fonts/8bitoperator_jve.ttf" id="11_5kr1g"]
 [ext_resource type="Texture2D" uid="uid://b0o2a7orm0xl7" path="res://assets/kitchen assets/sipping coffee alex.png" id="12_x3uhm"]
-[ext_resource type="Texture2D" uid="uid://d3v3sjwjad2tn" path="res://assets/Pixel Art Assets-20260512T045118Z-3-001/Pixel Art Assets/chaos_kitchen.png" id="13_2nido"]
 [ext_resource type="Texture2D" uid="uid://bsb5nyvip7muj" path="res://assets/kitchen assets/distorted alex.png" id="14_kqd2e"]
+[ext_resource type="Texture2D" uid="uid://dmmlnl6yw2d7r" path="res://assets/pixel_art/pixel_folder/glitch_kitchen.png" id="16_yk5wx"]
+[ext_resource type="PackedScene" uid="uid://dtr2eehy7e3tc" path="res://information/custom_dialog.tscn" id="18_yk5wx"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_oy172"]
 
@@ -24,12 +28,15 @@ size = Vector2(20.5, 659)
 size = Vector2(1179, 34)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rt2t2"]
-size = Vector2(277.35956, 277.0899)
+size = Vector2(215.80449, 181.88472)
 
-[node name="kitchen" type="Node2D" unique_id=963084480]
+[node name="kitchen" type="Node2D" unique_id=963084480 node_paths=PackedStringArray("custom_dialog")]
 position = Vector2(1, 0)
+script = ExtResource("1_idgpa")
+custom_dialog = NodePath("CustomDialog")
+portrait_image = ExtResource("2_yk5wx")
 
-[node name="alex" parent="." unique_id=1752237224 instance=ExtResource("1_oy172")]
+[node name="alex" parent="." unique_id=1752237224 groups=["player"] instance=ExtResource("1_oy172")]
 z_index = 1
 position = Vector2(414, 481)
 
@@ -65,9 +72,9 @@ position = Vector2(577, 666)
 shape = SubResource("RectangleShape2D_3uuk0")
 disabled = true
 
-[node name="PinkMug" type="Area2D" parent="." unique_id=181381631 node_paths=PackedStringArray("player_character", "timer_label", "mini_clock_node", "task_ui", "desk_node", "alex_sipping", "chaos_bg", "alex_distorted")]
+[node name="PinkMug" type="Area2D" parent="." unique_id=181381631 node_paths=PackedStringArray("player_character", "timer_label", "mini_clock_node", "task_ui", "goal_text", "desk_node", "alex_sipping", "chaos_bg", "alex_distorted", "static_player", "custom_dialog", "ambient_light") groups=["clickable"]]
 visible = false
-z_index = 3
+z_index = 5
 position = Vector2(870, 457)
 scale = Vector2(0.69043964, 0.703743)
 script = ExtResource("4_1366c")
@@ -77,19 +84,24 @@ mini_clock_node = NodePath("../MiniClock")
 task_ui = NodePath("../CanvasLayer/TaskUI")
 sugar_scene = ExtResource("4_717bs")
 bubble_scene = ExtResource("5_rt2t2")
+goal_text = NodePath("../CanvasLayer/GoalText")
 desk_node = NodePath("../Desk")
 alex_sipping = NodePath("../AlexSipping")
 chaos_bg = NodePath("../ChaosKitchen")
 alex_distorted = NodePath("../AlexDistorted")
-speed = null
+static_player = NodePath("../StaticPlayer")
+custom_dialog = NodePath("../CustomDialog")
+portrait_image = ExtResource("2_yk5wx")
+ambient_light = NodePath("../AmbientLight")
 
 [node name="Mug" type="Sprite2D" parent="PinkMug" unique_id=1412442069]
-scale = Vector2(0.99999994, 0.9999999)
+position = Vector2(73.865974, 36.945286)
+scale = Vector2(0.766568, 0.6997042)
 texture = ExtResource("4_3541m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PinkMug" unique_id=591648058]
-position = Vector2(4.7071533, 26.287964)
-scale = Vector2(0.9999999, 0.9999994)
+position = Vector2(70.24512, 49.73407)
+scale = Vector2(0.9999999, 0.9999992)
 shape = SubResource("RectangleShape2D_rt2t2")
 
 [node name="Desk" type="Sprite2D" parent="." unique_id=1620345078]
@@ -98,12 +110,14 @@ position = Vector2(605, 424.00003)
 scale = Vector2(2.0833333, 1.4507291)
 texture = ExtResource("3_xahmg")
 
-[node name="ScrollItem" type="Area2D" parent="." unique_id=1511202521 node_paths=PackedStringArray("task_ui", "pink_mug")]
+[node name="ScrollItem" type="Area2D" parent="." unique_id=1511202521 node_paths=PackedStringArray("pink_mug", "task_ui", "real_player", "static_player") groups=["clickable"]]
 z_index = 3
 position = Vector2(465, 490)
 script = ExtResource("4_5edak")
-task_ui = NodePath("../CanvasLayer/TaskUI")
 pink_mug = NodePath("../PinkMug")
+task_ui = NodePath("../CanvasLayer/TaskUI")
+real_player = NodePath("../alex")
+static_player = NodePath("../StaticPlayer")
 
 [node name="Scroll" type="Sprite2D" parent="ScrollItem" unique_id=394902376]
 position = Vector2(132, 26)
@@ -132,25 +146,42 @@ mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/TaskUI" unique_id=440816858]
 layout_mode = 0
-offset_left = -33.0
-offset_top = 37.0
-offset_right = 631.0
-offset_bottom = 696.0
+offset_left = 31.0
+offset_top = 151.0
+offset_right = 570.0
+offset_bottom = 687.0
 texture = ExtResource("5_wb7ax")
 expand_mode = 1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/TaskUI/TextureRect" unique_id=250849346]
 layout_mode = 0
-offset_left = 186.0
-offset_top = 221.0
-offset_right = 477.0
-offset_bottom = 469.0
+offset_left = 127.0
+offset_top = 171.0
+offset_right = 414.0
+offset_bottom = 412.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("11_5kr1g")
+theme_override_font_sizes/normal_font_size = 25
 text = "GOAL
 Collect enough sugar cubes before time runs out.
 
 Move the cup and collect falling sugar cubes.
 Avoid the dark bubbles falling from above."
+horizontal_alignment = 1
+
+[node name="GoalText" type="Label" parent="CanvasLayer" unique_id=1812877778]
+visible = false
+offset_left = 1.0
+offset_top = 574.0
+offset_right = 1153.0
+offset_bottom = 647.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("11_5kr1g")
+theme_override_font_sizes/font_size = 34
+text = "Goal
+Collect enough sugar cubes before time runs out."
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="MiniClock" type="Sprite2D" parent="." unique_id=870300949]
 visible = false
@@ -167,15 +198,17 @@ offset_bottom = 61.14563
 color = Color(0.0627451, 0.07058824, 0.078431375, 1)
 
 [node name="Label" type="Label" parent="MiniClock" unique_id=868158165]
-offset_left = -134.93332
-offset_top = -25.17759
-offset_right = -15.933319
-offset_bottom = 57.82241
+offset_left = -150.57777
+offset_top = -28.77439
+offset_right = -10.577774
+offset_bottom = 65.22561
 theme_override_colors/font_color = Color(0.7137255, 0.29803923, 0.6392157, 1)
-theme_override_font_sizes/font_size = 60
+theme_override_fonts/font = ExtResource("11_5kr1g")
+theme_override_font_sizes/font_size = 93
 text = "8:00"
+horizontal_alignment = 1
 
-[node name="AlexSipping" type="Sprite2D" parent="." unique_id=414329334]
+[node name="AlexSipping" type="Sprite2D" parent="." unique_id=414329334 groups=["endings"]]
 visible = false
 z_index = 10
 position = Vector2(465, 419)
@@ -187,7 +220,7 @@ visible = false
 z_index = 1
 position = Vector2(575.5001, 324.99997)
 scale = Vector2(0.5620118, 0.5659722)
-texture = ExtResource("13_2nido")
+texture = ExtResource("16_yk5wx")
 
 [node name="AlexDistorted" type="Sprite2D" parent="." unique_id=493682445]
 visible = false
@@ -196,6 +229,26 @@ position = Vector2(870.00006, 457.00003)
 scale = Vector2(0.5344713, 0.5043508)
 texture = ExtResource("14_kqd2e")
 
+[node name="CustomDialog" parent="." unique_id=471688608 instance=ExtResource("18_yk5wx")]
+visible = false
+
+[node name="DialogBox" parent="CustomDialog" index="0" unique_id=1367847465]
+offset_left = 168.0
+offset_top = 114.0
+offset_right = 938.0
+offset_bottom = 242.0
+
+[node name="StaticPlayer" type="Sprite2D" parent="." unique_id=10278145]
+visible = false
+position = Vector2(937, 441)
+scale = Vector2(0.19884075, 0.20284149)
+texture = ExtResource("2_yk5wx")
+flip_h = true
+
+[node name="AmbientLight" type="CanvasModulate" parent="." unique_id=165870227 groups=["ambient"]]
+
 [connection signal="area_entered" from="PinkMug" to="PinkMug" method="_on_area_entered"]
 [connection signal="input_event" from="PinkMug" to="PinkMug" method="_on_input_event"]
 [connection signal="input_event" from="ScrollItem" to="ScrollItem" method="_on_input_event"]
+
+[editable path="CustomDialog"]
