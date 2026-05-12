@@ -9,3 +9,7 @@ func _ready():
 	await $fade_transition/AnimationPlayer.animation_finished
 	var alex_img = load("res://assets/pixel_art/pixel_folder/alex.PNG")
 	$textbox.start_chat(["Time to start the day"], alex_img)
+
+
+func _on_door_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.

@@ -10,6 +10,7 @@ var is_typing: bool = false
 
 func _ready():
 	hide() # Keep hidden until start_chat is called
+	add_to_group("textbox_group")
 
 func start_chat(text_array: Array, portrait_texture: Texture2D = null):
 	get_tree().call_group("player", "set_physics_process", false)
