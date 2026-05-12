@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0aeo30x1hkor"
-path="res://.godot/imported/Mirror.png-9991c0dcf4e2906e52d46156b3cb8bec.ctex"
+uid="uid://cg7dr5uufyooq"
+path="res://.godot/imported/flash3.png-5a5368fd8e1815d982e52d683c46ce69.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/pixel_art/pixel_folder/Mirror.png"
-dest_files=["res://.godot/imported/Mirror.png-9991c0dcf4e2906e52d46156b3cb8bec.ctex"]
+source_file="res://assets/pixel_art/pixel_folder/flash3.png"
+dest_files=["res://.godot/imported/flash3.png-5a5368fd8e1815d982e52d683c46ce69.ctex"]
 
 [params]
 

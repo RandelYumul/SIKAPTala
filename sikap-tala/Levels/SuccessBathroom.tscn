@@ -1,6 +1,21 @@
 [gd_scene format=3 uid="uid://bji2jrhrgv6bi"]
 
 [ext_resource type="Texture2D" uid="uid://dof7abnm32hag" path="res://assets/pixel_art/pixel_folder/normal_bathroom.png" id="1_8n3id"]
+[ext_resource type="PackedScene" uid="uid://dcaf236cqig03" path="res://character/alex.tscn" id="2_a5yuf"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_f86hw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rfv5w"]
+size = Vector2(136, 635)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tnmmy"]
+size = Vector2(1154.75, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f7crp"]
+size = Vector2(476.75, 650.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2xbx"]
+size = Vector2(1151, 15)
 
 [node name="SuccessBathroom" type="Node2D" unique_id=1374624121]
 
@@ -8,3 +23,30 @@
 position = Vector2(575.5, 336.25)
 scale = Vector2(0.559082, 0.5776909)
 texture = ExtResource("1_8n3id")
+
+[node name="alex" parent="." unique_id=1752237224 instance=ExtResource("2_a5yuf")]
+position = Vector2(357, 456)
+
+[node name="Boundary" type="StaticBody2D" parent="." unique_id=1097878374]
+modulate = Color(0.06666667, 1, 1, 1)
+top_level = true
+position = Vector2(-1044, -577)
+disable_mode = 1
+physics_material_override = SubResource("PhysicsMaterial_f86hw")
+constant_linear_velocity = Vector2(1, 0)
+
+[node name="left" type="CollisionShape2D" parent="Boundary" unique_id=1722075523]
+position = Vector2(1113, 914)
+shape = SubResource("RectangleShape2D_rfv5w")
+
+[node name="bottom" type="CollisionShape2D" parent="Boundary" unique_id=617014466]
+position = Vector2(1631, 1245)
+shape = SubResource("RectangleShape2D_tnmmy")
+
+[node name="right" type="CollisionShape2D" parent="Boundary" unique_id=1712576688]
+position = Vector2(1956.625, 901)
+shape = SubResource("RectangleShape2D_f7crp")
+
+[node name="top" type="CollisionShape2D" parent="Boundary" unique_id=2001054741]
+position = Vector2(1619.5, 574.5)
+shape = SubResource("RectangleShape2D_g2xbx")
