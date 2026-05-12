@@ -2,9 +2,50 @@
 
 [ext_resource type="Texture2D" uid="uid://2ugegpbi7f4l" path="res://assets/pixel_art/pixel_folder/chaos_bathroom.png" id="1_q43mh"]
 
+[sub_resource type="GDScript" id="GDScript_q43mh"]
+script/source = "extends Node2D
+
+@onready var fade_rect: ColorRect = $FadeRect
+
+func _ready() -> void:
+	fade_rect.hide()
+	fade_sequence()
+
+func fade_sequence() -> void:
+	# Show black rectangle
+	fade_rect.show()
+	fade_rect.modulate.a = 0.0   # start transparent
+
+	# Flash effect: fade in quickly, then fade out
+	var tween := create_tween()
+	tween.tween_property(fade_rect, \"modulate:a\", 1.0, 0.5)  # fade in over 0.5s
+	tween.tween_property(fade_rect, \"modulate:a\", 0.0, 0.5)  # fade out over 0.5s
+	await tween.finished
+
+	# Pause briefly before final fade
+	await get_tree().create_timer(1.0).timeout
+
+	# Fade in fully and hold
+	var final_tween := create_tween()
+	final_tween.tween_property(fade_rect, \"modulate:a\", 1.0, 2.0)  # fade in over 2s
+	await final_tween.finished
+
+	# Hold black screen for 2 seconds
+	await get_tree().create_timer(2.0).timeout
+
+	# Transition to intro scene
+	get_tree().change_scene_to_file(\"res://game_backgrounds/intro.tscn\")
+"
+
 [node name="FailureBathroom" type="Node2D" unique_id=165664511]
+script = SubResource("GDScript_q43mh")
 
 [node name="ChaosBathroom" type="Sprite2D" parent="." unique_id=1865794703]
 position = Vector2(577, 351)
 scale = Vector2(0.5576172, 0.59375)
 texture = ExtResource("1_q43mh")
+
+[node name="FadeRect" type="ColorRect" parent="." unique_id=1226872729]
+offset_right = 1165.0
+offset_bottom = 753.0
+color = Color(0, 0, 0, 1)

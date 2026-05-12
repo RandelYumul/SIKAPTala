@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://c451w4mfa3p73"]
 
 [ext_resource type="Texture2D" uid="uid://c774mhlfwgndy" path="res://assets/pixel_art/pixel_folder/glitch_bathroom.png" id="1_sh4v7"]
-[ext_resource type="Texture2D" uid="uid://rv2mn5hteoia" path="res://assets/pixel_art/pixel_folder/mirror.png" id="2_bfcjb"]
+[ext_resource type="Texture2D" uid="uid://0aeo30x1hkor" path="res://assets/pixel_art/pixel_folder/Mirror.png" id="2_bfcjb"]
 [ext_resource type="Texture2D" uid="uid://cul8dkmux536m" path="res://assets/pixel_art/pixel_folder/list.png" id="3_28s5o"]
 [ext_resource type="FontFile" uid="uid://cxhcp1dw18vpi" path="res://fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="4_mn20l"]
+[ext_resource type="FontFile" uid="uid://b513c0fsx7hys" path="res://fonts/Pixelify_Sans/static/PixelifySans-Medium.ttf" id="5_28s5o"]
 
 [sub_resource type="GDScript" id="GDScript_bfcjb"]
 script/source = "extends Node2D
@@ -22,6 +23,8 @@ var expected := \"\"
 var score := 0
 var total := 0
 
+@onready var dialogue_label: Label = $DialogueLabel   # add a Label node for text
+
 func _ready() -> void:
 	_show_new_arrow()
 	var timer := Timer.new()
@@ -30,6 +33,7 @@ func _ready() -> void:
 	timer.one_shot = false
 	add_child(timer)
 	timer.connect(\"timeout\", Callable(self, \"_on_timer_timeout\"))
+	dialogue_label.hide()
 
 func _show_new_arrow() -> void:
 	var options = [\"UP\", \"DOWN\", \"LEFT\", \"RIGHT\"]
@@ -59,14 +63,25 @@ func _process(delta: float) -> void:
 
 func _end_round() -> void:
 	if score >= score_needed:
-		get_tree().change_scene_to_file(\"res://Levels/SuccessBathroom.tscn\")
+		_show_dialogue_and_transition(\"Stop looking at it.\", \"res://Levels/SuccessBathroom.tscn\")
 	else:
-		get_tree().change_scene_to_file(\"res://Levels/FailureBathroom.tscn\")
+		_show_dialogue_and_transition(\"The reflection twists into something you can’t escape.\", \"res://Levels/FailureBathroom.tscn\")
+
+func _show_dialogue_and_transition(text: String, scene_path: String) -> void:
+	dialogue_label.text = text
+	dialogue_label.show()
+	await get_tree().create_timer(3.0).timeout   # show dialogue for 3 seconds
+	dialogue_label.hide()
+	get_tree().change_scene_to_file(scene_path)
 "
 
 [sub_resource type="LabelSettings" id="LabelSettings_u76p4"]
 font = ExtResource("4_mn20l")
 font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_mn20l"]
+font = ExtResource("5_28s5o")
+font_size = 35
 
 [node name="glitch_bath_game" type="Node2D" unique_id=318375289]
 script = SubResource("GDScript_bfcjb")
@@ -77,21 +92,21 @@ scale = Vector2(0.5610351, 0.5572917)
 texture = ExtResource("1_sh4v7")
 
 [node name="Mirror" type="Sprite2D" parent="." unique_id=994881364]
-position = Vector2(726, 309.00003)
+position = Vector2(747.99994, 289.99997)
 rotation = 0.015707964
-scale = Vector2(0.30996606, 0.33511865)
+scale = Vector2(2.8518112, 2.073822)
 texture = ExtResource("2_bfcjb")
 
 [node name="Instructions" type="Sprite2D" parent="." unique_id=1915890857]
-position = Vector2(221, 309)
+position = Vector2(203, 309.00003)
 scale = Vector2(0.45633563, 0.45519164)
 texture = ExtResource("3_28s5o")
 
 [node name="RichTextLabel" type="Label" parent="." unique_id=1915590675]
-offset_left = 127.0
-offset_top = 173.0
-offset_right = 332.0
-offset_bottom = 423.0
+offset_left = 113.0
+offset_top = 177.0
+offset_right = 318.0
+offset_bottom = 427.0
 text = "Match your 
 reflection’s 
 movements exactly.
@@ -106,7 +121,14 @@ lag behind or act early."
 label_settings = SubResource("LabelSettings_u76p4")
 
 [node name="PromptArrow" type="Sprite2D" parent="." unique_id=2118979282]
-position = Vector2(615, 287)
+position = Vector2(614, 288)
 
 [node name="InputArrow" type="Sprite2D" parent="." unique_id=1826707837]
-position = Vector2(885, 296)
+position = Vector2(905, 290)
+
+[node name="DialogueLabel" type="Label" parent="." unique_id=1302280714]
+offset_left = 171.0
+offset_top = 580.0
+offset_right = 211.0
+offset_bottom = 603.0
+label_settings = SubResource("LabelSettings_mn20l")

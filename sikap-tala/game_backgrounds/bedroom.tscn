@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bjnyntjl8j8g3" path="res://game_backgrounds/bedroom.gd" id="1_06xkc"]
 [ext_resource type="Texture2D" uid="uid://de3i1m8ue4k70" path="res://assets/pixel_art/pixel_folder/normal_bedroom.png" id="1_kx5ap"]
-[ext_resource type="Script" uid="uid://dikw10u1uapq5" path="res://game_backgrounds/character_bedroom.gd" id="2_6emqm"]
+[ext_resource type="Script" path="res://game_backgrounds/character_bedroom.gd" id="2_6emqm"]
 [ext_resource type="PackedScene" uid="uid://sostiknc7q7v" path="res://game_backgrounds/fade_transition.tscn" id="3_ct300"]
 [ext_resource type="PackedScene" uid="uid://dcaf236cqig03" path="res://character/alex.tscn" id="4_ct300"]
 [ext_resource type="PackedScene" uid="uid://cln88mwkrcnik" path="res://information/textbox.tscn" id="5_v5k21"]
@@ -11,8 +11,8 @@
 [ext_resource type="FontFile" uid="uid://nlcknvwecnd8" path="res://fonts/8bitoperator_jve.ttf" id="7_mhkkq"]
 [ext_resource type="Script" uid="uid://diai01dn2y6ug" path="res://game_backgrounds/drawer.gd" id="8_ty0mw"]
 [ext_resource type="PackedScene" uid="uid://hrr8svi648co" path="res://information/bedroom_puzzle.tscn" id="10_u2upk"]
-[ext_resource type="PackedScene" uid="uid://c62hxm65edua3" path="res://information/key.tscn" id="11_wmins"]
-[ext_resource type="Script" uid="uid://de1sggavj3ckv" path="res://information/key.gd" id="13_6rspf"]
+[ext_resource type="PackedScene" path="res://information/key.tscn" id="11_wmins"]
+[ext_resource type="Script" path="res://information/key.gd" id="13_6rspf"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ct300"]
 

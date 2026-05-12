@@ -1,0 +1,298 @@
+[gd_scene format=3 uid="uid://bj5bvjsuwddn7"]
+
+[ext_resource type="Texture2D" uid="uid://d034yj6ruwv6t" path="res://assets/sprites/Fire_sheet.png" id="1_6u354"]
+[ext_resource type="Texture2D" uid="uid://cen8pk5xfp5ox" path="res://assets/pixel_art/pixel_folder/more_fire.png" id="1_62uid"]
+[ext_resource type="PackedScene" uid="uid://dcaf236cqig03" path="res://character/alex.tscn" id="3_sj2lr"]
+[ext_resource type="Texture2D" uid="uid://cdkxi0fp5q5ym" path="res://assets/gif/frame_00_delay-0.06s.png" id="4_haw6q"]
+[ext_resource type="Texture2D" uid="uid://dhh65tfykmhj6" path="res://assets/gif/frame_01_delay-0.06s.png" id="5_pth0c"]
+[ext_resource type="Texture2D" uid="uid://bbq84elwmecc0" path="res://assets/gif/frame_02_delay-0.06s.png" id="6_tu6mj"]
+[ext_resource type="FontFile" uid="uid://b513c0fsx7hys" path="res://fonts/Pixelify_Sans/static/PixelifySans-Medium.ttf" id="7_ds0lc"]
+[ext_resource type="FontFile" uid="uid://nlcknvwecnd8" path="res://fonts/8bitoperator_jve.ttf" id="9_c1t28"]
+
+[sub_resource type="GDScript" id="GDScript_haw6q"]
+script/source = "extends Node2D
+
+@onready var first_flash_in: Sprite2D = $first_flash_in
+@onready var second_flash_in: Sprite2D = $second_flash_in
+@onready var third_flash_in: Sprite2D = $third_flash_in
+@onready var last_flash_in: Sprite2D = $last_flash_in
+@onready var dialogue_label: Label = $DialogueLabel
+@onready var final_dialogue_label: Label = $FinalDialogue   # for the last line
+
+func _ready() -> void:
+	first_flash_in.hide()
+	second_flash_in.hide()
+	third_flash_in.hide()
+	last_flash_in.hide()
+	dialogue_label.hide()
+	final_dialogue_label.hide()
+	flash_sequence()
+
+func flash_sequence() -> void:
+	# Initial wait before starting
+	await get_tree().create_timer(2.0).timeout
+
+	# Dialogue 1 → Flash 1
+	dialogue_label.text = \"I don’t remember yesterday.\"
+	dialogue_label.show()
+	await get_tree().create_timer(3.0).timeout
+	dialogue_label.hide()
+
+	first_flash_in.show()
+	await get_tree().create_timer(3.0).timeout
+	first_flash_in.hide()
+
+	await get_tree().create_timer(2.0).timeout
+
+	# Dialogue 2 → Flash 2
+	dialogue_label.text = \"Why can’t I remember clearly?\"
+	dialogue_label.show()
+	await get_tree().create_timer(3.0).timeout
+	dialogue_label.hide()
+
+	second_flash_in.show()
+	await get_tree().create_timer(3.0).timeout
+	second_flash_in.hide()
+
+	await get_tree().create_timer(2.0).timeout
+
+	# Dialogue 3 → Flash 3
+	dialogue_label.text = \"You're just the calm version.\"
+	dialogue_label.show()
+	await get_tree().create_timer(3.0).timeout
+	dialogue_label.hide()
+
+	third_flash_in.show()
+	await get_tree().create_timer(3.0).timeout
+	third_flash_in.hide()
+
+	await get_tree().create_timer(2.0).timeout
+
+	# Dialogue 4 → Flash 4
+	dialogue_label.text = \"You held the door shut.\"
+	dialogue_label.show()
+	await get_tree().create_timer(3.0).timeout
+	dialogue_label.hide()
+
+	last_flash_in.show()
+	await get_tree().create_timer(3.0).timeout
+	# IMPORTANT: keep last_flash_in visible
+
+	# Final Dialogue appears alongside the final flash
+	final_dialogue_label.text = \"YOU DIDN’T SURVIVE. YOU JUST SPLIT.\"
+	final_dialogue_label.show()
+	await get_tree().create_timer(3.0).timeout
+	final_dialogue_label.hide()
+
+	# Keep last_flash_in visible until transition
+	get_tree().change_scene_to_file(\"res://game_backgrounds/intro.tscn\")
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bnp2u"]
+atlas = ExtResource("1_6u354")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkf3j"]
+atlas = ExtResource("1_6u354")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k30xw"]
+atlas = ExtResource("1_6u354")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_haw6q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bnp2u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkf3j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k30xw")
+}],
+"loop": true,
+"name": &"fire",
+"speed": 5.0
+}]
+
+[sub_resource type="GDScript" id="GDScript_pth0c"]
+script/source = "extends AnimatedSprite2D
+
+func _ready() -> void:
+	# Play the fire animation when the node is ready
+	play(\"fire\")
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_62uid"]
+size = Vector2(1106.5, 82)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h0px4"]
+size = Vector2(53, 709)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6u354"]
+size = Vector2(75.5, 763)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sj2lr"]
+size = Vector2(1180, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8hyqy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bnp2u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkf3j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k30xw")
+}],
+"loop": true,
+"name": &"fire",
+"speed": 5.0
+}]
+
+[sub_resource type="GDScript" id="GDScript_pnmfp"]
+script/source = "extends AnimatedSprite2D
+
+func _ready() -> void:
+	# Play the fire animation when the node is ready
+	play(\"fire\")
+"
+
+[sub_resource type="GDScript" id="GDScript_sj2lr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tu6mj"]
+font = ExtResource("7_ds0lc")
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_8hyqy"]
+font = ExtResource("9_c1t28")
+font_size = 30
+
+[node name="FlamingHallway2" type="Node2D" unique_id=971365591]
+script = SubResource("GDScript_haw6q")
+
+[node name="fireforeground" type="AnimatedSprite2D" parent="." unique_id=902879230]
+z_index = 3
+position = Vector2(780.31995, 474.5513)
+scale = Vector2(0.41309193, 1.0982696)
+sprite_frames = SubResource("SpriteFrames_haw6q")
+animation = &"fire"
+script = SubResource("GDScript_pth0c")
+
+[node name="fire3" type="AnimatedSprite2D" parent="fireforeground" unique_id=1923951303]
+z_index = 3
+position = Vector2(660.09546, -66.05969)
+scale = Vector2(2.389671, 1.8372952)
+sprite_frames = SubResource("SpriteFrames_haw6q")
+animation = &"fire"
+script = SubResource("GDScript_pth0c")
+
+[node name="fire2" type="AnimatedSprite2D" parent="fireforeground" unique_id=1294243692]
+z_index = 3
+position = Vector2(-881.72644, -36.01242)
+scale = Vector2(1.5458561, 1.3554686)
+sprite_frames = SubResource("SpriteFrames_haw6q")
+animation = &"fire"
+script = SubResource("GDScript_pth0c")
+
+[node name="fire1" type="AnimatedSprite2D" parent="fireforeground" unique_id=1779777188]
+z_index = 3
+position = Vector2(-1683.2086, -4.144043)
+rotation = 0.25132743
+scale = Vector2(1.0192181, 1.228167)
+sprite_frames = SubResource("SpriteFrames_haw6q")
+animation = &"fire"
+frame_progress = 0.28765395
+script = SubResource("GDScript_pth0c")
+
+[node name="MoreFire" type="Sprite2D" parent="." unique_id=1002761033]
+position = Vector2(579, 318)
+scale = Vector2(0.5581054, 0.54253465)
+texture = ExtResource("1_62uid")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=538180234]
+position = Vector2(-3, 0)
+
+[node name="top" type="CollisionShape2D" parent="StaticBody2D" unique_id=64773673]
+position = Vector2(582.75, 15)
+shape = SubResource("RectangleShape2D_62uid")
+
+[node name="left" type="CollisionShape2D" parent="StaticBody2D" unique_id=99928381]
+position = Vector2(19.5, 344.5)
+shape = SubResource("RectangleShape2D_h0px4")
+
+[node name="right" type="CollisionShape2D" parent="StaticBody2D" unique_id=918679450]
+position = Vector2(1133, 355.5)
+shape = SubResource("RectangleShape2D_6u354")
+
+[node name="bottom" type="CollisionShape2D" parent="StaticBody2D" unique_id=406535577]
+position = Vector2(583, 668)
+shape = SubResource("RectangleShape2D_sj2lr")
+
+[node name="alex" parent="." unique_id=1752237224 instance=ExtResource("3_sj2lr")]
+position = Vector2(193, 410)
+
+[node name="firebackground" type="AnimatedSprite2D" parent="." unique_id=1616425924]
+z_index = 1
+position = Vector2(823.99994, 430)
+scale = Vector2(0.56643486, 1.1089703)
+sprite_frames = SubResource("SpriteFrames_8hyqy")
+animation = &"fire"
+script = SubResource("GDScript_pnmfp")
+
+[node name="fire1" type="AnimatedSprite2D" parent="firebackground" unique_id=1414304774]
+z_index = 1
+position = Vector2(-1347.0215, -282.24377)
+rotation = 0.5532694
+scale = Vector2(0.73476744, 1.0081732)
+sprite_frames = SubResource("SpriteFrames_8hyqy")
+animation = &"fire"
+script = SubResource("GDScript_pnmfp")
+
+[node name="first_flash_in" type="Sprite2D" parent="." unique_id=2094965073]
+visible = false
+z_index = 7
+position = Vector2(580.7143, 340.8321)
+scale = Vector2(1.5554284, 1.6406065)
+texture = ExtResource("4_haw6q")
+script = SubResource("GDScript_sj2lr")
+
+[node name="third_flash_in" type="Sprite2D" parent="." unique_id=1150064732]
+visible = false
+z_index = 9
+position = Vector2(573, 336.49997)
+scale = Vector2(1.5493333, 1.6327014)
+texture = ExtResource("5_pth0c")
+
+[node name="second_flash_in" type="Sprite2D" parent="." unique_id=394949337]
+visible = false
+z_index = 9
+position = Vector2(579.9999, 347.99994)
+scale = Vector2(1.5706666, 1.6824644)
+texture = ExtResource("6_tu6mj")
+
+[node name="last_flash_in" type="Sprite2D" parent="." unique_id=2101501074]
+visible = false
+z_index = 9
+position = Vector2(606.5, 352.99997)
+scale = Vector2(1.6413335, 1.7298579)
+texture = ExtResource("5_pth0c")
+
+[node name="DialogueLabel" type="Label" parent="." unique_id=1309902938]
+offset_left = 377.0
+offset_top = 91.0
+offset_right = 922.0
+offset_bottom = 149.0
+label_settings = SubResource("LabelSettings_tu6mj")
+
+[node name="FinalDialogue" type="Label" parent="." unique_id=563519826]
+z_index = 12
+offset_left = 562.0
+offset_top = 324.0
+offset_right = 563.0
+offset_bottom = 347.0
+label_settings = SubResource("LabelSettings_8hyqy")

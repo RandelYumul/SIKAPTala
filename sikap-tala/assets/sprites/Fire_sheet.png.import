@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0aeo30x1hkor"
-path="res://.godot/imported/Mirror.png-9991c0dcf4e2906e52d46156b3cb8bec.ctex"
+uid="uid://d034yj6ruwv6t"
+path="res://.godot/imported/Fire_sheet.png-2d3b0aa6efcec4377c76959f0e7c994f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/pixel_art/pixel_folder/Mirror.png"
-dest_files=["res://.godot/imported/Mirror.png-9991c0dcf4e2906e52d46156b3cb8bec.ctex"]
+source_file="res://assets/sprites/Fire_sheet.png"
+dest_files=["res://.godot/imported/Fire_sheet.png-2d3b0aa6efcec4377c76959f0e7c994f.ctex"]
 
 [params]
 
