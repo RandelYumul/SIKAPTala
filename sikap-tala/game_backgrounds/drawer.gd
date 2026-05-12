@@ -45,6 +45,7 @@ func _input(event):
 				]
 				var my_portraits = [alex_img, alex_img, phone_img, alex_img, phone_img, phone_img, alex_img]
 				
+				get_tree().call_group("player", "set_physics_process", false)
 				textbox.start_chat(my_messages, my_portraits)
 				
 				# Wait a tiny bit then show the small box if you still want the overlap
@@ -65,6 +66,7 @@ func _input(event):
 					"I have the key already, lets try opening the door.",	
 				]
 				var my_portraits = [alex_img]
+				get_tree().call_group("player", "set_physics_process", false)
 				textbox.start_chat(my_messages, my_portraits)  
 				
 			# Increment the count so the next press triggers the 'else' block

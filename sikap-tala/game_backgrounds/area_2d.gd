@@ -27,12 +27,14 @@ func start_event():
 
 	if interact_count == 0:
 		# Two messages, so we send a list of two images
+		get_tree().call_group("player", "set_physics_process", false)
 		textbox.start_chat(
 			["The door is locked...", "Maybe there’s a key in the drawer."], 
 			[img, img] 
 		)
 	else:
 		# One message, so we send a list of one image
+		get_tree().call_group("player", "set_physics_process", false)
 		textbox.start_chat(
 			["Still locked. I need that key."], 
 			[img]

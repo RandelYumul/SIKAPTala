@@ -1,30 +1,25 @@
 extends Node2D
 
-@onready var anim_player: AnimationPlayer = $AnimationPlayer
+# The path to your next scene. Adjust this to match your actual file structure.
+const BEDROOM_SCENE_PATH = "res://game_backgrounds/bedroom.tscn"
 
-func _ready() -> void:
-	# Start the text animation as soon as the scene loads
-	# Based on your previous setup, ensure this animation name matches exactly [cite: 4, 9]
-	anim_player.play("text_intro")
-	
-	# Wait for the animation to finish
-	await anim_player.animation_finished
-	
-	# After the animation is done, you can either auto-change 
-	# or wait for the user to see the "Press Enter" prompt
-	# change_to_bedroom() 
+func _process(_delta):
+	# 1. Logic for flipping the sprite (from your previous question)
+	var direction = Input.get_axis("ui_left", "ui_right")
+	if direction > 0:
+		%AnimatedSprite2D.flip_h = false
+	elif direction < 0:
+		%AnimatedSprite2D.flip_h = true
 
-func _input(event: InputEvent) -> void:
-	# Listen for the Enter key (ui_accept) to proceed manually
-	if event.is_action_pressed("ui_accept"):
-		change_to_bedroom()
+	# 2. Logic for proceeding to the next scene
+	# We use 'ui_accept' (mapped to Enter by default) 
+	# and check if the 'enter' prompt is actually visible to the player.
+	if Input.is_action_just_pressed("ui_accept"):
+		proceed_to_next_scene()
 
-func change_to_bedroom() -> void:
-	# If you have a fade_transition, play it first [cite: 4, 8]
-	if has_node("fade_transition"):
-		$fade_transition.show()
-		$fade_transition/AnimationPlayer.play("fade_in")
-		await $fade_transition/AnimationPlayer.animation_finished
+func proceed_to_next_scene():
+	# This changes the scene to the bedroom
+	var error = get_tree().change_scene_to_file(BEDROOM_SCENE_PATH)
 	
-	# Move to the bedroom scene 
-	get_tree().change_scene_to_file("res://game_backgrounds/bedroom.tscn")
+	if error != OK:
+		print("Error: Could not find the bedroom scene at ", BEDROOM_SCENE_PATH)
