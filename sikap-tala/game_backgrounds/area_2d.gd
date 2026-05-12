@@ -24,7 +24,12 @@ func start_event():
 	var textbox = get_tree().get_first_node_in_group("textbox_group")
 	
 	if not textbox: return
-
+	
+	# IF PLAYER HAS THE KEY
+	if Global.has_key:
+		get_tree().change_scene_to_file("res://game_backgrounds/kitchen.tscn")
+		return
+  
 	if interact_count == 0:
 		# Two messages, so we send a list of two images
 		get_tree().call_group("player", "set_physics_process", false)

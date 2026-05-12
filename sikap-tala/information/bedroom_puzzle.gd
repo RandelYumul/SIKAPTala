@@ -6,6 +6,7 @@ extends Node2D
 @onready var box3 = $Control/code3
 @onready var box4 = $Control/code4
 @onready var enter_button = $EnterButton
+@onready var bedroom = get_node("../character_bedroom")
 
 const CORRECT_CODE = "0326"
 
@@ -39,16 +40,28 @@ func _on_enter_pressed():
 	var entered_code = box1.text + box2.text + box3.text + box4.text
 	
 	if entered_code == CORRECT_CODE:
-			# Look for the drawer node. 
-			# If it's a sibling, use "../DrawerName"
-			var drawer_node = get_node("../drawer") 
-			
-			if drawer_node:
-				drawer_node.done = true
-				hide()
-				get_tree().call_group("player", "set_physics_process", true)
+		# 1. Handle the drawer state 
+		var key_node = get_node("../key")
+		var drawer_node = get_node("../drawer") 
+		if drawer_node:
+			drawer_node.done = true 
+		
+		# 2. Make the Key visible
+		# If the key is a child of the current scene, use its name.
+		# If it's a unique node, use %key
+		if key_node:
+			key_node.visible = true
+			# If you want it to pop up or animate, you can trigger it here:
+			# key_node.play_pickup_animation() 
+		
+		# 3. Notify the character node (using the group logic)
+		get_tree().call_group("player", "obtain_key")
+
+		# 4. Close puzzle and resume movement 
+		hide() 
+		get_tree().call_group("player", "set_physics_process", true) 
 	else:
-		print("Wrong code, try again.")
+		print("Wrong code, try again.") 
 		_reset_puzzle()
 
 func _reset_puzzle():

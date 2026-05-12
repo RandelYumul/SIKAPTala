@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bjnyntjl8j8g3" path="res://game_backgrounds/bedroom.gd" id="1_06xkc"]
 [ext_resource type="Texture2D" uid="uid://de3i1m8ue4k70" path="res://assets/pixel_art/pixel_folder/normal_bedroom.png" id="1_kx5ap"]
+[ext_resource type="Script" uid="uid://dikw10u1uapq5" path="res://game_backgrounds/character_bedroom.gd" id="2_6emqm"]
 [ext_resource type="PackedScene" uid="uid://sostiknc7q7v" path="res://game_backgrounds/fade_transition.tscn" id="3_ct300"]
 [ext_resource type="PackedScene" uid="uid://dcaf236cqig03" path="res://character/alex.tscn" id="4_ct300"]
 [ext_resource type="PackedScene" uid="uid://cln88mwkrcnik" path="res://information/textbox.tscn" id="5_v5k21"]
@@ -10,6 +11,8 @@
 [ext_resource type="FontFile" uid="uid://nlcknvwecnd8" path="res://fonts/8bitoperator_jve.ttf" id="7_mhkkq"]
 [ext_resource type="Script" uid="uid://diai01dn2y6ug" path="res://game_backgrounds/drawer.gd" id="8_ty0mw"]
 [ext_resource type="PackedScene" uid="uid://hrr8svi648co" path="res://information/bedroom_puzzle.tscn" id="10_u2upk"]
+[ext_resource type="PackedScene" uid="uid://c62hxm65edua3" path="res://information/key.tscn" id="11_wmins"]
+[ext_resource type="Script" uid="uid://de1sggavj3ckv" path="res://information/key.gd" id="13_6rspf"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ct300"]
 
@@ -30,7 +33,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("alex:visible")
+tracks/1/path = NodePath("character_bedroom/alex:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -57,7 +60,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("alex:visible")
+tracks/1/path = NodePath("character_bedroom/alex:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -88,7 +91,10 @@ size = Vector2(114, 122)
 [node name="bedroom" type="Node2D" unique_id=1318856281]
 script = ExtResource("1_06xkc")
 
-[node name="alex" parent="." unique_id=895170818 groups=["player"] instance=ExtResource("4_ct300")]
+[node name="character_bedroom" type="Node2D" parent="." unique_id=1187290311 groups=["player"]]
+script = ExtResource("2_6emqm")
+
+[node name="alex" parent="character_bedroom" unique_id=895170818 groups=["player"] instance=ExtResource("4_ct300")]
 visible = false
 z_index = 1
 position = Vector2(664, 464)
@@ -189,6 +195,12 @@ text = "[E]"
 visible = false
 z_index = 50
 position = Vector2(577, 322)
+
+[node name="key" parent="." unique_id=516696681 instance=ExtResource("11_wmins")]
+visible = false
+z_index = 50
+position = Vector2(606, 324)
+script = ExtResource("13_6rspf")
 
 [connection signal="body_entered" from="door" to="door" method="_on_body_entered"]
 [connection signal="body_exited" from="door" to="door" method="_on_body_exited"]

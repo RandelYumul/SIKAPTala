@@ -1,0 +1,303 @@
+[gd_scene format=3 uid="uid://jgkgi00ycdy1"]
+
+[ext_resource type="Texture2D" uid="uid://t5d73s2dyyk4" path="res://assets/pixel_art/pixel_folder/normal_hallway.png" id="1_1eofl"]
+[ext_resource type="Script" uid="uid://bcq1s23bxc520" path="res://game_backgrounds/hallway.gd" id="1_bt3l1"]
+[ext_resource type="PackedScene" uid="uid://dcaf236cqig03" path="res://character/alex.tscn" id="2_hu66w"]
+[ext_resource type="Texture2D" uid="uid://dr6ufilrvjj5s" path="res://assets/pixel_art/pixel_folder/bathroom sign 1.png" id="3_dnc2n"]
+[ext_resource type="Script" uid="uid://d32tbumg1hmgn" path="res://game_backgrounds/glitch_hallway.gd" id="4_bt3l1"]
+[ext_resource type="FontFile" uid="uid://nlcknvwecnd8" path="res://fonts/8bitoperator_jve.ttf" id="5_xntkm"]
+[ext_resource type="Texture2D" uid="uid://cicuemx8ygin4" path="res://assets/pixel_art/pixel_folder/glitch_hallway.png" id="6_dnc2n"]
+[ext_resource type="Texture2D" uid="uid://btvu4grhrdht" path="res://assets/pixel_art/pixel_folder/other_alex.PNG" id="8_xntkm"]
+[ext_resource type="Script" uid="uid://spawi3ytvawh" path="res://game_backgrounds/tobathroom.gd" id="9_rgqmt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rgqmt"]
+size = Vector2(20.5, 659)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1pnvr"]
+size = Vector2(1179, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nve7e"]
+size = Vector2(30, 193)
+
+[sub_resource type="Animation" id="Animation_bt3l1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../GlitchHallway:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../GlitchHallway:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../OtherAlex:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../blackscreen:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../blackscreen:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../OtherAlex:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(838, 367.99997)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../OtherAlex:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.0996724, 0.0996724)]
+}
+
+[sub_resource type="Animation" id="Animation_xntkm"]
+resource_name = "glitch"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../GlitchHallway:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../GlitchHallway:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../OtherAlex:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../blackscreen:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.27, 0.93, 1.47, 2.22, 2.77),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../blackscreen:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../OtherAlex:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(838, 367.99997)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../OtherAlex:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.0996724, 0.0996724)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rgqmt"]
+_data = {
+&"RESET": SubResource("Animation_bt3l1"),
+&"glitch": SubResource("Animation_xntkm")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xntkm"]
+size = Vector2(31, 191)
+
+[node name="hallway" type="Node2D" unique_id=1474144820]
+script = ExtResource("1_bt3l1")
+
+[node name="NormalHallway" type="Sprite2D" parent="." unique_id=435290640]
+position = Vector2(575, 325.5)
+scale = Vector2(0.55859375, 0.5651042)
+texture = ExtResource("1_1eofl")
+
+[node name="Boundaries" type="StaticBody2D" parent="." unique_id=1142420485]
+
+[node name="left" type="CollisionShape2D" parent="Boundaries" unique_id=701231710]
+position = Vector2(-11.75, 323)
+shape = SubResource("RectangleShape2D_rgqmt")
+
+[node name="right" type="CollisionShape2D" parent="Boundaries" unique_id=1045010819]
+position = Vector2(1166, 323)
+shape = SubResource("RectangleShape2D_rgqmt")
+
+[node name="up" type="CollisionShape2D" parent="Boundaries" unique_id=1981217948]
+position = Vector2(571, -18)
+shape = SubResource("RectangleShape2D_1pnvr")
+disabled = true
+
+[node name="down" type="CollisionShape2D" parent="Boundaries" unique_id=2119342040]
+position = Vector2(577, 666)
+shape = SubResource("RectangleShape2D_1pnvr")
+disabled = true
+
+[node name="alex" parent="." unique_id=1752237224 groups=["player"] instance=ExtResource("2_hu66w")]
+z_index = 10
+position = Vector2(1059, 461)
+
+[node name="BathroomSign1" type="Sprite2D" parent="." unique_id=1582553599]
+position = Vector2(826, 258)
+scale = Vector2(0.65999997, 0.66)
+texture = ExtResource("3_dnc2n")
+
+[node name="glitch_hallway" type="Area2D" parent="." unique_id=1119616128]
+script = ExtResource("4_bt3l1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="glitch_hallway" unique_id=969208060]
+position = Vector2(904, 467)
+shape = SubResource("RectangleShape2D_nve7e")
+
+[node name="InteractionLabel" type="Label" parent="glitch_hallway" unique_id=1847828763]
+offset_left = 890.0
+offset_top = 374.0
+offset_right = 930.0
+offset_bottom = 404.0
+theme_override_fonts/font = ExtResource("5_xntkm")
+theme_override_font_sizes/font_size = 29
+text = "[E]"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="glitch_hallway" unique_id=333683129]
+libraries/ = SubResource("AnimationLibrary_rgqmt")
+
+[node name="GlitchHallway" type="Sprite2D" parent="." unique_id=1860707216]
+position = Vector2(576, 326.5)
+scale = Vector2(0.56347656, 0.5616319)
+texture = ExtResource("6_dnc2n")
+
+[node name="blackscreen" type="ColorRect" parent="." unique_id=1702844802]
+modulate = Color(1, 1, 1, 0)
+z_index = 11
+offset_right = 1154.0
+offset_bottom = 651.0
+color = Color(0, 0, 0, 1)
+
+[node name="OtherAlex" type="Sprite2D" parent="." unique_id=2105417959]
+position = Vector2(838, 367.99997)
+scale = Vector2(0.0996724, 0.0996724)
+texture = ExtResource("8_xntkm")
+
+[node name="BathroomSign2" type="Sprite2D" parent="." unique_id=500520427]
+position = Vector2(326, 258.00003)
+scale = Vector2(0.65999997, 0.66)
+texture = ExtResource("3_dnc2n")
+
+[node name="tobathroom" type="Area2D" parent="." unique_id=2102562300]
+script = ExtResource("9_rgqmt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tobathroom" unique_id=1940216528]
+position = Vector2(396.5, 470.5)
+shape = SubResource("RectangleShape2D_xntkm")
+
+[node name="InteractionLabel" type="Label" parent="tobathroom" unique_id=617928696]
+offset_left = 379.0
+offset_top = 372.0
+offset_right = 419.0
+offset_bottom = 402.0
+theme_override_fonts/font = ExtResource("5_xntkm")
+theme_override_font_sizes/font_size = 29
+text = "[E]"
+
+[connection signal="body_entered" from="glitch_hallway" to="glitch_hallway" method="_on_body_entered"]
+[connection signal="body_exited" from="glitch_hallway" to="glitch_hallway" method="_on_body_exited"]
+[connection signal="body_entered" from="tobathroom" to="tobathroom" method="_on_body_entered"]
+[connection signal="body_exited" from="tobathroom" to="tobathroom" method="_on_body_exited"]

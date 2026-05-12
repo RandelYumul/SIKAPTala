@@ -156,6 +156,7 @@ func end_minigame():
 	if score >= 12:
 		# WIN: Show the calm sipping image
 		print("WIN! Score: ", score)
+		Global.kitchen_win = true
 		if alex_sipping != null:
 			alex_sipping.visible = true
 		

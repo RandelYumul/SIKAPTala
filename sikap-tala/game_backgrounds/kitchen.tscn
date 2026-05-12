@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cdiscee6wr5gt"]
 
 [ext_resource type="Texture2D" uid="uid://c23ytk6q6bqkf" path="res://assets/pixel_art/pixel_folder/normal_kitchen.png" id="1_fostl"]
-[ext_resource type="Script" uid="uid://nyg7ng08hgxm" path="res://game_backgrounds/kitchen_scene.gd" id="1_idgpa"]
+[ext_resource type="Script" path="res://game_backgrounds/kitchen_scene.gd" id="1_idgpa"]
 [ext_resource type="PackedScene" uid="uid://dcaf236cqig03" path="res://character/alex.tscn" id="1_oy172"]
 [ext_resource type="Texture2D" uid="uid://b8bc3jbwk5uia" path="res://assets/pixel_art/pixel_folder/alex.PNG" id="2_yk5wx"]
 [ext_resource type="Texture2D" uid="uid://c1m4088x6m8er" path="res://assets/kitchen assets/desk-.png" id="3_xahmg"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://bsb5nyvip7muj" path="res://assets/kitchen assets/distorted alex.png" id="14_kqd2e"]
 [ext_resource type="Texture2D" uid="uid://dmmlnl6yw2d7r" path="res://assets/pixel_art/pixel_folder/glitch_kitchen.png" id="16_yk5wx"]
 [ext_resource type="PackedScene" uid="uid://dtr2eehy7e3tc" path="res://information/custom_dialog.tscn" id="18_yk5wx"]
+[ext_resource type="Script" uid="uid://gmgjeb4sdr33" path="res://game_backgrounds/kitchen_hallway.gd" id="19_uaa00"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_oy172"]
 
@@ -29,6 +30,9 @@ size = Vector2(1179, 34)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rt2t2"]
 size = Vector2(215.80449, 181.88472)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2e285"]
+size = Vector2(21, 238.5)
 
 [node name="kitchen" type="Node2D" unique_id=963084480 node_paths=PackedStringArray("custom_dialog")]
 position = Vector2(1, 0)
@@ -247,8 +251,29 @@ flip_h = true
 
 [node name="AmbientLight" type="CanvasModulate" parent="." unique_id=165870227 groups=["ambient"]]
 
+[node name="kitchen_hallway" type="Area2D" parent="." unique_id=49474311]
+script = ExtResource("19_uaa00")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="kitchen_hallway" unique_id=1582113892]
+position = Vector2(1140.5, 529.25)
+shape = SubResource("RectangleShape2D_2e285")
+
+[node name="InteractionLabel" type="Label" parent="kitchen_hallway" unique_id=766001840]
+z_index = 15
+offset_left = 1106.0
+offset_top = 446.0
+offset_right = 1159.0
+offset_bottom = 487.0
+theme_override_fonts/font = ExtResource("11_5kr1g")
+theme_override_font_sizes/font_size = 29
+text = "[E]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="area_entered" from="PinkMug" to="PinkMug" method="_on_area_entered"]
 [connection signal="input_event" from="PinkMug" to="PinkMug" method="_on_input_event"]
 [connection signal="input_event" from="ScrollItem" to="ScrollItem" method="_on_input_event"]
+[connection signal="body_entered" from="kitchen_hallway" to="kitchen_hallway" method="_on_body_entered"]
+[connection signal="body_exited" from="kitchen_hallway" to="kitchen_hallway" method="_on_body_exited"]
 
 [editable path="CustomDialog"]
