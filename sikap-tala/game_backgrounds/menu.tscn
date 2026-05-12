@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://03wfntj6p2r2"]
+
+[ext_resource type="Texture2D" uid="uid://cptgx5gcu8a71" path="res://assets/Pixel Art Assets-20260512T045118Z-3-001/Pixel Art Assets/normal_livingroom.png" id="1_58wkk"]
+[ext_resource type="Script" uid="uid://ci0s63w4x6jsr" path="res://game_backgrounds/menu.gd" id="1_r7v6x"]
+[ext_resource type="Script" uid="uid://b4tq55gso0gs1" path="res://game_backgrounds/main_menu.gd" id="2_t1bg3"]
+[ext_resource type="PackedScene" uid="uid://sostiknc7q7v" path="res://game_backgrounds/fade_transition.tscn" id="3_t1bg3"]
+
+[node name="menu" type="Node2D" unique_id=587724797]
+script = ExtResource("1_r7v6x")
+
+[node name="NormalLivingroom" type="Sprite2D" parent="." unique_id=967225396]
+position = Vector2(576.5, 326.5)
+scale = Vector2(0.5600586, 0.5633681)
+texture = ExtResource("1_58wkk")
+
+[node name="fade_transition" parent="." unique_id=488117941 instance=ExtResource("3_t1bg3")]
+
+[node name="main_menu" type="Node2D" parent="." unique_id=2005397129]
+script = ExtResource("2_t1bg3")
+
+[node name="Control" type="Control" parent="main_menu" unique_id=1331828564]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="start_day" type="Button" parent="main_menu/Control" unique_id=98906190]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 319.0
+offset_right = 238.0
+offset_bottom = 381.0
+text = "Start Day"
+
+[node name="settings" type="Button" parent="main_menu/Control" unique_id=607842662]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 394.0
+offset_right = 237.0
+offset_bottom = 456.0
+text = "Settings"
+
+[node name="quit" type="Button" parent="main_menu/Control" unique_id=352281529]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 472.0
+offset_right = 236.0
+offset_bottom = 532.0
+text = "Quit"
+
+[node name="fade_transition" parent="main_menu" unique_id=885321898 instance=ExtResource("3_t1bg3")]
+visible = false
+
+[node name="fade_timer" type="Timer" parent="main_menu/fade_transition" unique_id=1308617008]
+
+[connection signal="pressed" from="main_menu/Control/start_day" to="main_menu" method="_on_button_pressed"]
+[connection signal="pressed" from="main_menu/Control/settings" to="main_menu" method="_on_settings_pressed"]
+[connection signal="pressed" from="main_menu/Control/quit" to="main_menu" method="_on_quit_pressed"]
+[connection signal="timeout" from="main_menu/fade_transition/fade_timer" to="main_menu" method="_on_fade_timer_timeout"]

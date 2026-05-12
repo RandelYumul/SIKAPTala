@@ -1,0 +1,132 @@
+[gd_scene format=3 uid="uid://di8jhra8wwhcs"]
+
+[ext_resource type="Script" uid="uid://bjnyntjl8j8g3" path="res://game_backgrounds/bedroom.gd" id="1_06xkc"]
+[ext_resource type="Texture2D" uid="uid://de3i1m8ue4k70" path="res://assets/Pixel Art Assets-20260512T045118Z-3-001/Pixel Art Assets/normal_bedroom.png" id="1_kx5ap"]
+[ext_resource type="PackedScene" uid="uid://sostiknc7q7v" path="res://game_backgrounds/fade_transition.tscn" id="3_ct300"]
+[ext_resource type="PackedScene" uid="uid://dcaf236cqig03" path="res://character/alex.tscn" id="4_ct300"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ct300"]
+
+[sub_resource type="Animation" id="Animation_06xkc"]
+length = 1.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bed/NormalBedroom:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.39),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("alex:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.39),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_ct300"]
+resource_name = "start bedroom"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bed/NormalBedroom:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("alex:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.01, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v5k21"]
+_data = {
+&"RESET": SubResource("Animation_06xkc"),
+&"start bedroom": SubResource("Animation_ct300")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ct300"]
+size = Vector2(20.5, 659)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v5k21"]
+size = Vector2(1179, 34)
+
+[node name="bedroom" type="Node2D" unique_id=1318856281]
+script = ExtResource("1_06xkc")
+
+[node name="alex" parent="." unique_id=895170818 instance=ExtResource("4_ct300")]
+visible = false
+z_index = 1
+position = Vector2(99, 454)
+
+[node name="bed" type="StaticBody2D" parent="." unique_id=1339424466]
+physics_material_override = SubResource("PhysicsMaterial_ct300")
+
+[node name="NormalBedroom" type="Sprite2D" parent="bed" unique_id=452810938]
+visible = false
+position = Vector2(575.5001, 324.99997)
+scale = Vector2(0.5620118, 0.5659722)
+texture = ExtResource("1_kx5ap")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="bed" unique_id=1176571195]
+position = Vector2(-1, 1)
+polygon = PackedVector2Array(800, 629, 830, 646, 1156, 648, 1158, 485, 940, 331, 814, 340)
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=796811925]
+z_index = -1
+offset_left = 2.0
+offset_top = 0.9999695
+offset_right = 1151.0
+offset_bottom = 651.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1732520928]
+libraries/ = SubResource("AnimationLibrary_v5k21")
+autoplay = &"start bedroom"
+
+[node name="fade_transition" parent="." unique_id=885321898 instance=ExtResource("3_ct300")]
+self_modulate = Color(0, 0, 0, 1)
+offset_top = 1.0
+offset_bottom = 649.0
+
+[node name="Boundaries" type="StaticBody2D" parent="." unique_id=1008478991]
+
+[node name="left" type="CollisionShape2D" parent="Boundaries" unique_id=1712810857]
+position = Vector2(-11.75, 323)
+shape = SubResource("RectangleShape2D_ct300")
+
+[node name="right" type="CollisionShape2D" parent="Boundaries" unique_id=1311974470]
+position = Vector2(1166, 323)
+shape = SubResource("RectangleShape2D_ct300")
+
+[node name="up" type="CollisionShape2D" parent="Boundaries" unique_id=369581707]
+position = Vector2(571, -18)
+shape = SubResource("RectangleShape2D_v5k21")
+disabled = true
+
+[node name="down" type="CollisionShape2D" parent="Boundaries" unique_id=1908698052]
+position = Vector2(577, 666)
+shape = SubResource("RectangleShape2D_v5k21")
+disabled = true

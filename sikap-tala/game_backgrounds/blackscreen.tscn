@@ -1,0 +1,209 @@
+[gd_scene format=3 uid="uid://kvok2vdcjsoi"]
+
+[ext_resource type="Script" uid="uid://br5bxmg2p1qh3" path="res://game_backgrounds/blackscreen.gd" id="1_h78vb"]
+[ext_resource type="PackedScene" uid="uid://blqiswnsy5uh7" path="res://game_assets/instructions.tscn" id="2_ob7lv"]
+[ext_resource type="FontFile" uid="uid://nlcknvwecnd8" path="res://fonts/8bitoperator_jve.ttf" id="3_mlp74"]
+
+[sub_resource type="Animation" id="Animation_4ybdp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ikero"]
+resource_name = "blinking"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.93333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mune5"]
+_data = {
+&"RESET": SubResource("Animation_4ybdp"),
+&"blinking": SubResource("Animation_ikero")
+}
+
+[sub_resource type="Animation" id="Animation_c4e3p"]
+length = 3.1333334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../instructions:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../RichTextLabel3:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_h78vb"]
+resource_name = "display"
+length = 3.4333334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.02, 1.01),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../RichTextLabel2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.78, 2.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../RichTextLabel2:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.7666667, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["Stay calm.", ""]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:text")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.0009999999, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["DAY 1", ""]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../instructions:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2.93),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../RichTextLabel3:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 3.1333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ob7lv"]
+_data = {
+&"RESET": SubResource("Animation_c4e3p"),
+&"display": SubResource("Animation_h78vb")
+}
+
+[node name="blackscreen" type="Node2D" unique_id=138461676]
+script = ExtResource("1_h78vb")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=733011060]
+offset_right = 1150.0
+offset_bottom = 651.0
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1707032135]
+modulate = Color(1, 1, 1, 0)
+offset_left = 1.0
+offset_top = 255.0
+offset_right = 1149.0
+offset_bottom = 402.0
+theme_override_font_sizes/normal_font_size = 75
+text = "DAY 1"
+tab_size = 5
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 6
+visible_ratio = 1.2
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=1906121530]
+modulate = Color(1, 1, 1, 0)
+offset_left = 2.0
+offset_top = 454.0
+offset_right = 1150.0
+offset_bottom = 651.0
+theme_override_font_sizes/normal_font_size = 35
+text = "Stay calm."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="instructions" parent="." unique_id=1147670647 instance=ExtResource("2_ob7lv")]
+visible = false
+position = Vector2(580, 326)
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="." unique_id=1792160838]
+visible = false
+offset_left = 66.0
+offset_top = 540.0
+offset_right = 1094.0
+offset_bottom = 580.0
+theme_override_fonts/normal_font = ExtResource("3_mlp74")
+theme_override_font_sizes/normal_font_size = 28
+text = "Press Enter to Continue"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="RichTextLabel3" unique_id=1035995737]
+libraries/ = SubResource("AnimationLibrary_mune5")
+autoplay = &"blinking"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2061512888]
+root_node = NodePath("../RichTextLabel")
+libraries/ = SubResource("AnimationLibrary_ob7lv")
+autoplay = &"display"

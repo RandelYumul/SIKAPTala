@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://dcaf236cqig03"]
+
+[ext_resource type="Script" uid="uid://cdmenrou7mmle" path="res://alex.gd" id="1_wnwdv"]
+[ext_resource type="Texture2D" uid="uid://b8bc3jbwk5uia" path="res://assets/Pixel Art Assets-20260512T045118Z-3-001/Pixel Art Assets/alex.PNG" id="2_hhqhk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bp5mu"]
+atlas = ExtResource("2_hhqhk")
+region = Rect2(0, 0, 1984, 1984)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uggiy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bp5mu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wnwdv"]
+size = Vector2(835.21985, 685.5706)
+
+[node name="alex" type="CharacterBody2D" unique_id=1752237224]
+script = ExtResource("1_wnwdv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=802386217]
+scale = Vector2(0.19254035, 0.19254035)
+sprite_frames = SubResource("SpriteFrames_uggiy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=320746243]
+position = Vector2(-6, 96)
+scale = Vector2(0.19254035, 0.19254035)
+shape = SubResource("RectangleShape2D_wnwdv")
