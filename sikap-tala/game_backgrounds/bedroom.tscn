@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://hrr8svi648co" path="res://information/bedroom_puzzle.tscn" id="10_u2upk"]
 [ext_resource type="PackedScene" uid="uid://c62hxm65edua3" path="res://information/key.tscn" id="11_wmins"]
 [ext_resource type="Script" uid="uid://de1sggavj3ckv" path="res://information/key.gd" id="13_6rspf"]
+[ext_resource type="Texture2D" uid="uid://clvyfjlmygw61" path="res://assets/pixel_art/pixel_folder/glitch_bedroom.png" id="14_ssedy"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ct300"]
 
@@ -87,6 +88,66 @@ size = Vector2(45, 375)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4xisu"]
 size = Vector2(114, 122)
+
+[sub_resource type="Animation" id="Animation_ssedy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ns1no"]
+resource_name = "glitch"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.06666667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.32, 0.6, 0.93),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pxa6l"]
+_data = {
+&"RESET": SubResource("Animation_ssedy"),
+&"glitch": SubResource("Animation_ns1no")
+}
 
 [node name="bedroom" type="Node2D" unique_id=1318856281]
 script = ExtResource("1_06xkc")
@@ -201,6 +262,14 @@ visible = false
 z_index = 50
 position = Vector2(606, 324)
 script = ExtResource("13_6rspf")
+
+[node name="GlitchBedroom" type="Sprite2D" parent="." unique_id=109950936]
+position = Vector2(575.99994, 320.00003)
+scale = Vector2(0.56152344, 0.5572916)
+texture = ExtResource("14_ssedy")
+
+[node name="Glitchplayer" type="AnimationPlayer" parent="GlitchBedroom" unique_id=235522611]
+libraries/ = SubResource("AnimationLibrary_pxa6l")
 
 [connection signal="body_entered" from="door" to="door" method="_on_body_entered"]
 [connection signal="body_exited" from="door" to="door" method="_on_body_exited"]

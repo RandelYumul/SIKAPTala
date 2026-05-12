@@ -7,6 +7,8 @@ extends Node2D
 @onready var box4 = $Control/code4
 @onready var enter_button = $EnterButton
 @onready var bedroom = get_node("../character_bedroom")
+@onready var wrong_count := 0
+@onready var glitch_playing = false 
 
 const CORRECT_CODE = "0326"
 
@@ -61,8 +63,23 @@ func _on_enter_pressed():
 		hide() 
 		get_tree().call_group("player", "set_physics_process", true) 
 	else:
-		print("Wrong code, try again.") 
+		wrong_count += 1
+		print("Wrong code:", wrong_count)
+
+		var glitch_player = get_node("../GlitchBedroom/Glitchplayer")
+
+		if glitch_player and !glitch_playing:
+			glitch_playing = true
+			glitch_player.play("glitch")
+
+			await glitch_player.animation_finished  # or animation_finished signal
+
+			glitch_playing = false
+
 		_reset_puzzle()
+
+		if wrong_count >= 3:
+			get_tree().change_scene_to_file("res://game_backgrounds/bedroom.tscn")
 
 func _reset_puzzle():
 	for box in [box1, box2, box3, box4]:

@@ -1,8 +1,10 @@
 extends Node2D
 
+@onready var glitch_bed = $GlitchBedroom
 
 func _ready():
 	# Initial Fade Setup
+	glitch_bed.hide()
 	get_tree().call_group("player", "set_physics_process", false)
 	$fade_transition.modulate.a = 1.0
 	$fade_transition.show()

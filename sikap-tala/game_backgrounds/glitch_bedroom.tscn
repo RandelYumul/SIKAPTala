@@ -1,0 +1,376 @@
+[gd_scene format=3 uid="uid://ctnui8ge4d6sc"]
+
+[ext_resource type="Script" uid="uid://cpbwyvc1wmod2" path="res://game_backgrounds/glitch_bedroom.gd" id="1_fcxsb"]
+[ext_resource type="Texture2D" uid="uid://clvyfjlmygw61" path="res://assets/pixel_art/pixel_folder/glitch_bedroom.png" id="2_wqt2e"]
+[ext_resource type="FontFile" uid="uid://nlcknvwecnd8" path="res://fonts/8bitoperator_jve.ttf" id="3_wqt2e"]
+[ext_resource type="PackedScene" uid="uid://dcaf236cqig03" path="res://character/alex.tscn" id="4_ism0m"]
+[ext_resource type="Texture2D" uid="uid://de3i1m8ue4k70" path="res://assets/pixel_art/pixel_folder/normal_bedroom.png" id="5_xp8jt"]
+[ext_resource type="PackedScene" uid="uid://cln88mwkrcnik" path="res://information/textbox.tscn" id="6_t5ewq"]
+[ext_resource type="Texture2D" uid="uid://c2pwcc87tpsfi" path="res://assets/textbox assets/glitchbedroom2.png" id="7_m7s8o"]
+
+[sub_resource type="Animation" id="Animation_fcxsb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RichTextLabel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RichTextLabel2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("RichTextLabel3:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Glitchbedroom2:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("RichTextLabel4:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("RichTextLabel5:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_wqt2e"]
+resource_name = "glitch_bedroom"
+length = 12.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.98, 11.483502, 12.053502),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0.50980395), Color(0, 0, 0, 0.50980395), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RichTextLabel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.7, 2.7333333, 3.71, 5.366667, 6.733333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RichTextLabel2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(7.2, 8.1, 9.133333, 10.133333, 11.233334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 12.233334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_t5ewq"]
+resource_name = "reply"
+length = 16.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RichTextLabel3:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Glitchbedroom2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(4.4333334),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(4.4, 5.3, 9.996857),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0.0627451, 0.24705882, 0.34901962)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(4.4),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("RichTextLabel4:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(5.8471823, 9.996857),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("RichTextLabel5:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(9.966666, 14.133333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ism0m"]
+_data = {
+&"RESET": SubResource("Animation_fcxsb"),
+&"glitch_bedroom": SubResource("Animation_wqt2e"),
+&"reply": SubResource("Animation_t5ewq")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ism0m"]
+size = Vector2(20.5, 659)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xp8jt"]
+size = Vector2(1179, 34)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_t5ewq"]
+
+[node name="glitch_bedroom" type="Node2D" unique_id=34882519]
+script = ExtResource("1_fcxsb")
+
+[node name="GlitchBedroom" type="Sprite2D" parent="." unique_id=537326158]
+position = Vector2(578.5, 322.5)
+scale = Vector2(0.5600586, 0.5616319)
+texture = ExtResource("2_wqt2e")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=611069284]
+modulate = Color(0, 0, 0, 1)
+z_index = 100
+offset_left = 2.0
+offset_top = 3.0
+offset_right = 1154.0
+offset_bottom = 645.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=282687151]
+modulate = Color(1, 1, 1, 0)
+z_index = 101
+offset_left = -2.0
+offset_top = 484.0
+offset_right = 1151.0
+offset_bottom = 650.0
+theme_override_fonts/normal_font = ExtResource("3_wqt2e")
+theme_override_font_sizes/normal_font_size = 30
+text = "Mother’s Voice: “Did you sleep well, Alex?”"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=870942985]
+modulate = Color(1, 1, 1, 0)
+z_index = 101
+offset_left = 2.0
+offset_top = 475.0
+offset_right = 1155.0
+offset_bottom = 641.0
+theme_override_fonts/normal_font = ExtResource("3_wqt2e")
+theme_override_font_sizes/normal_font_size = 30
+text = "Mother’s Voice: “Don’t overthink today.”"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1638675410]
+libraries/ = SubResource("AnimationLibrary_ism0m")
+autoplay = &"glitch_bedroom"
+
+[node name="alex" parent="." unique_id=1752237224 instance=ExtResource("4_ism0m")]
+position = Vector2(683, 444)
+
+[node name="Boundaries" type="StaticBody2D" parent="." unique_id=989855822]
+
+[node name="left" type="CollisionShape2D" parent="Boundaries" unique_id=861329298]
+position = Vector2(-11.75, 323)
+shape = SubResource("RectangleShape2D_ism0m")
+
+[node name="right" type="CollisionShape2D" parent="Boundaries" unique_id=997273558]
+position = Vector2(1166, 323)
+shape = SubResource("RectangleShape2D_ism0m")
+
+[node name="up" type="CollisionShape2D" parent="Boundaries" unique_id=560641745]
+position = Vector2(571, -18)
+shape = SubResource("RectangleShape2D_xp8jt")
+disabled = true
+
+[node name="down" type="CollisionShape2D" parent="Boundaries" unique_id=869288456]
+position = Vector2(577, 666)
+shape = SubResource("RectangleShape2D_xp8jt")
+disabled = true
+
+[node name="bed" type="StaticBody2D" parent="." unique_id=866570251]
+physics_material_override = SubResource("PhysicsMaterial_t5ewq")
+
+[node name="NormalBedroom" type="Sprite2D" parent="bed" unique_id=1378255299]
+visible = false
+position = Vector2(575.5001, 324.99997)
+scale = Vector2(0.5620118, 0.5659722)
+texture = ExtResource("5_xp8jt")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="bed" unique_id=184445165]
+position = Vector2(-1, 1)
+polygon = PackedVector2Array(800, 629, 830, 646, 1156, 648, 1158, 485, 940, 331, 814, 340)
+
+[node name="textbox" parent="." unique_id=288270788 instance=ExtResource("6_t5ewq")]
+position = Vector2(-3, 3)
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="." unique_id=1500034246]
+offset_left = 2.0
+offset_top = 475.0
+offset_right = 1155.0
+offset_bottom = 641.0
+theme_override_fonts/normal_font = ExtResource("3_wqt2e")
+theme_override_font_sizes/normal_font_size = 30
+text = "Mother’s Voice:  “…you shouldn’t notice that.”"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Glitchbedroom2" type="Sprite2D" parent="." unique_id=594404760]
+position = Vector2(575.5, 326.25)
+scale = Vector2(0.5639648, 0.56293404)
+texture = ExtResource("7_m7s8o")
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="." unique_id=126283822]
+offset_left = 2.0
+offset_top = 475.0
+offset_right = 1155.0
+offset_bottom = 641.0
+theme_override_fonts/normal_font = ExtResource("3_wqt2e")
+theme_override_font_sizes/normal_font_size = 30
+text = "system: “Something is out of place…”"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="." unique_id=2072180539]
+offset_left = 2.0
+offset_top = 475.0
+offset_right = 1155.0
+offset_bottom = 641.0
+theme_override_fonts/normal_font = ExtResource("3_wqt2e")
+theme_override_font_sizes/normal_font_size = 30
+text = "*whispers* you are not seeing everything"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

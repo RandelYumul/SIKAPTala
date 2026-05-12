@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://c8ld8fpc34tvl"]
+
+[ext_resource type="Texture2D" uid="uid://c2pwcc87tpsfi" path="res://assets/textbox assets/glitchbedroom2.png" id="1_roftm"]
+[ext_resource type="Texture2D" uid="uid://c3oq13ypv5kb1" path="res://assets/textbox assets/choices.png" id="2_2g56h"]
+[ext_resource type="Script" uid="uid://c6p5u0sbdyi2c" path="res://game_backgrounds/choices.gd" id="3_8akth"]
+[ext_resource type="FontFile" uid="uid://nlcknvwecnd8" path="res://fonts/8bitoperator_jve.ttf" id="4_7u1v4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aa3s0"]
+bg_color = Color(0.003921569, 0.6627451, 0.7058824, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pd11b"]
+bg_color = Color(0.6392157, 0.07058824, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x6c7g"]
+bg_color = Color(0.972549, 0.74509805, 0.4627451, 1)
+
+[node name="choices" type="Node2D" unique_id=1663039931]
+
+[node name="Glitchbedroom2" type="Sprite2D" parent="." unique_id=1674844758]
+position = Vector2(576, 323.00003)
+scale = Vector2(0.5625, 0.5625)
+texture = ExtResource("1_roftm")
+
+[node name="ColorRect" type="ColorRect" parent="Glitchbedroom2" unique_id=1285979488]
+modulate = Color(0, 0.05920533, 0.23312098, 0.3293296)
+offset_left = -1022.22217
+offset_top = -576.00006
+offset_right = 1022.22266
+offset_bottom = 579.5068
+
+[node name="Choices" type="Sprite2D" parent="." unique_id=1588249566]
+position = Vector2(576, 320)
+scale = Vector2(0.5713333, 0.5713333)
+texture = ExtResource("2_2g56h")
+script = ExtResource("3_8akth")
+
+[node name="button1" type="Button" parent="Choices" unique_id=187993598]
+anchors_preset = -1
+anchor_left = 0.18200001
+anchor_top = 0.36900002
+anchor_right = 0.18200001
+anchor_bottom = 0.36900002
+offset_left = -630.10974
+offset_top = -402.77103
+offset_right = -378.06775
+offset_bottom = -178.73363
+theme_override_fonts/font = ExtResource("4_7u1v4")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_aa3s0")
+text = "1"
+
+[node name="button2" type="Button" parent="Choices" unique_id=478642737]
+anchors_preset = -1
+anchor_left = 0.18200001
+anchor_top = 0.40633956
+anchor_right = 0.15925047
+anchor_bottom = 0.369
+offset_left = -336.06067
+offset_top = -598.8037
+offset_right = -70.01637
+offset_bottom = -346.76163
+theme_override_fonts/font = ExtResource("4_7u1v4")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_pd11b")
+text = "2"
+metadata/_edit_use_anchors_ = true
+
+[node name="button3" type="Button" parent="Choices" unique_id=668985419]
+anchors_preset = -1
+anchor_left = 0.18200001
+anchor_top = 0.36900002
+anchor_right = 0.18200001
+anchor_bottom = 0.36900002
+offset_left = -28.009277
+offset_top = -416.77338
+offset_right = 210.03038
+offset_bottom = -178.73363
+theme_override_fonts/font = ExtResource("4_7u1v4")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_x6c7g")
+text = "3"
