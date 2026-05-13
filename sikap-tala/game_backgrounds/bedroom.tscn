@@ -13,7 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://hrr8svi648co" path="res://information/bedroom_puzzle.tscn" id="10_u2upk"]
 [ext_resource type="PackedScene" uid="uid://c62hxm65edua3" path="res://information/key.tscn" id="11_wmins"]
 [ext_resource type="Script" uid="uid://de1sggavj3ckv" path="res://information/key.gd" id="13_6rspf"]
+[ext_resource type="AudioStream" uid="uid://coxrioisvjdaw" path="res://assets/soundfx/Shifted_BG02.wav" id="14_ns1no"]
 [ext_resource type="Texture2D" uid="uid://clvyfjlmygw61" path="res://assets/pixel_art/pixel_folder/glitch_bedroom.png" id="14_ssedy"]
+[ext_resource type="AudioStream" uid="uid://dpoaj02ov5x21" path="res://assets/soundfx/Door Opening Sound Effect.mp3" id="16_pxa6l"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ct300"]
 
@@ -270,6 +272,13 @@ texture = ExtResource("14_ssedy")
 
 [node name="Glitchplayer" type="AnimationPlayer" parent="GlitchBedroom" unique_id=235522611]
 libraries/ = SubResource("AnimationLibrary_pxa6l")
+
+[node name="glitch" type="AudioStreamPlayer" parent="." unique_id=929141942]
+stream = ExtResource("14_ns1no")
+
+[node name="DoorSound" type="AudioStreamPlayer" parent="." unique_id=2063332896]
+stream = ExtResource("16_pxa6l")
+volume_db = -16.0
 
 [connection signal="body_entered" from="door" to="door" method="_on_body_entered"]
 [connection signal="body_exited" from="door" to="door" method="_on_body_exited"]

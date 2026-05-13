@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dvrbog18i8fwl"
+path="res://.godot/imported/act 1.mp3-ee045e62380a50153f6e7468d2251157.mp3str"
+
+[deps]
+
+source_file="res://assets/soundfx/act 1.mp3"
+dest_files=["res://.godot/imported/act 1.mp3-ee045e62380a50153f6e7468d2251157.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ejsqiw0e21yo"
+path="res://.godot/imported/footsteps on wood #1 floor sound effect (royalty free).mp3-ba44cc56d0649690610267534487d0b8.mp3str"
+
+[deps]
+
+source_file="res://assets/soundfx/footsteps on wood #1 floor sound effect (royalty free).mp3"
+dest_files=["res://.godot/imported/footsteps on wood #1 floor sound effect (royalty free).mp3-ba44cc56d0649690610267534487d0b8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

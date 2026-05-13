@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dpoaj02ov5x21"
+path="res://.godot/imported/Door Opening Sound Effect.mp3-f87c73a606a3b73789ab9a532fd7df81.mp3str"
+
+[deps]
+
+source_file="res://assets/soundfx/Door Opening Sound Effect.mp3"
+dest_files=["res://.godot/imported/Door Opening Sound Effect.mp3-f87c73a606a3b73789ab9a532fd7df81.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

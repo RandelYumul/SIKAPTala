@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dcaf236cqig03" path="res://character/alex.tscn" id="2_7mpqe"]
 [ext_resource type="Script" uid="uid://dhffok0ghhiw6" path="res://Levels/wash_face_option.gd" id="3_rrbgl"]
 [ext_resource type="FontFile" uid="uid://nlcknvwecnd8" path="res://fonts/8bitoperator_jve.ttf" id="4_6u0ya"]
+[ext_resource type="AudioStream" uid="uid://bwv8s8p3gqvhd" path="res://assets/soundfx/act 3.mp3" id="6_6u0ya"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0ykx7"]
 
@@ -166,5 +167,9 @@ autowrap_mode = 3
 autowrap_trim_flags = 128
 script = SubResource("GDScript_83h1y")
 metadata/_edit_use_anchors_ = true
+
+[node name="Act3" type="AudioStreamPlayer" parent="." unique_id=658692161]
+stream = ExtResource("6_6u0ya")
+volume_db = -17.0
 
 [connection signal="body_entered" from="event_trigger" to="alex" method="_on_event_trigger_body_entered"]

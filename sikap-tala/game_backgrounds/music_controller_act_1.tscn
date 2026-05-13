@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dxwla2v2nsr48"]
+
+[ext_resource type="AudioStream" uid="uid://dvrbog18i8fwl" path="res://assets/soundfx/act 1.mp3" id="1_p2abo"]
+
+[node name="MusicController" type="AudioStreamPlayer" unique_id=137787184]
+stream = ExtResource("1_p2abo")
+volume_db = -17.0

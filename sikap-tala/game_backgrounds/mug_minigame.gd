@@ -25,6 +25,10 @@ extends Area2D
 @export var portrait_image: Texture2D 
 
 @export var ambient_light: CanvasModulate
+@onready var act_2: AudioStreamPlayer = $"../Act2"
+@onready var glitch: AudioStreamPlayer = $"../glitch"
+@onready var asmr: AudioStreamPlayer = $"../asmr"
+
 
 # --- GAME VARIABLES ---
 var minigame_active: bool = false
@@ -161,16 +165,20 @@ func end_minigame():
 			alex_sipping.visible = true
 		
 		if custom_dialog != null:
-			
+			asmr.play()
 			custom_dialog.move_box(Vector2(200, 480))
 			var win_lines = [
 				"Whew... much better.",
 				"Hey, thank you so much for the coffee!"
 			]
 			custom_dialog.start_dialog(win_lines, portrait_image)
+			asmr.stop()
 	else:
 		# LOSS: Show the chaos state and distorted perception
 		print("LOSS! Score: ", score)
+		act_2.stop()
+		glitch.play()
+		
 		if chaos_bg != null:
 			chaos_bg.visible = true
 		if alex_distorted != null:

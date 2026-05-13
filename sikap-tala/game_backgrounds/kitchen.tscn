@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://cdiscee6wr5gt"]
+[gd_scene format=3 uid="uid://dh14sy6cixs5b"]
 
 [ext_resource type="Texture2D" uid="uid://c23ytk6q6bqkf" path="res://assets/pixel_art/pixel_folder/normal_kitchen.png" id="1_fostl"]
-[ext_resource type="Script" path="res://game_backgrounds/kitchen_scene.gd" id="1_idgpa"]
+[ext_resource type="Script" uid="uid://nyg7ng08hgxm" path="res://game_backgrounds/kitchen_scene.gd" id="1_idgpa"]
 [ext_resource type="PackedScene" uid="uid://dcaf236cqig03" path="res://character/alex.tscn" id="1_oy172"]
 [ext_resource type="Texture2D" uid="uid://b8bc3jbwk5uia" path="res://assets/pixel_art/pixel_folder/alex.PNG" id="2_yk5wx"]
 [ext_resource type="Texture2D" uid="uid://c1m4088x6m8er" path="res://assets/kitchen assets/desk-.png" id="3_xahmg"]
@@ -19,6 +19,9 @@
 [ext_resource type="Texture2D" uid="uid://dmmlnl6yw2d7r" path="res://assets/pixel_art/pixel_folder/glitch_kitchen.png" id="16_yk5wx"]
 [ext_resource type="PackedScene" uid="uid://dtr2eehy7e3tc" path="res://information/custom_dialog.tscn" id="18_yk5wx"]
 [ext_resource type="Script" uid="uid://gmgjeb4sdr33" path="res://game_backgrounds/kitchen_hallway.gd" id="19_uaa00"]
+[ext_resource type="AudioStream" uid="uid://ca73x2njjj40v" path="res://assets/soundfx/act 2.mp3" id="20_2e285"]
+[ext_resource type="AudioStream" uid="uid://cjckl3wcoi6t2" path="res://assets/soundfx/Shifted_BG01.wav" id="20_ul0yk"]
+[ext_resource type="AudioStream" uid="uid://db0u1xh645tc2" path="res://assets/soundfx/ASMR #SOUNDS WATER SINK#RELAXING SOUNDS.mp3" id="22_e2qs4"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_oy172"]
 
@@ -269,6 +272,17 @@ theme_override_font_sizes/font_size = 29
 text = "[E]"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="glitch" type="AudioStreamPlayer" parent="." unique_id=6927646]
+stream = ExtResource("20_ul0yk")
+
+[node name="Act2" type="AudioStreamPlayer" parent="." unique_id=1765234334]
+stream = ExtResource("20_2e285")
+volume_db = -17.0
+
+[node name="asmr" type="AudioStreamPlayer" parent="." unique_id=471780100]
+stream = ExtResource("22_e2qs4")
+volume_db = -16.0
 
 [connection signal="area_entered" from="PinkMug" to="PinkMug" method="_on_area_entered"]
 [connection signal="input_event" from="PinkMug" to="PinkMug" method="_on_input_event"]

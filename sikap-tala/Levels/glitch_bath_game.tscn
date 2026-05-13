@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://c451w4mfa3p73"]
 
 [ext_resource type="Texture2D" uid="uid://c774mhlfwgndy" path="res://assets/pixel_art/pixel_folder/glitch_bathroom.png" id="1_sh4v7"]
-[ext_resource type="Texture2D" uid="uid://0aeo30x1hkor" path="res://assets/pixel_art/pixel_folder/Mirror.png" id="2_bfcjb"]
+[ext_resource type="Texture2D" uid="uid://0aeo30x1hkor" path="res://assets/pixel_art/pixel_folder/mirror.png" id="2_bfcjb"]
 [ext_resource type="Texture2D" uid="uid://cul8dkmux536m" path="res://assets/pixel_art/pixel_folder/list.png" id="3_28s5o"]
 [ext_resource type="FontFile" uid="uid://cxhcp1dw18vpi" path="res://fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="4_mn20l"]
 [ext_resource type="FontFile" uid="uid://b513c0fsx7hys" path="res://fonts/Pixelify_Sans/static/PixelifySans-Medium.ttf" id="5_28s5o"]
+[ext_resource type="AudioStream" uid="uid://bwv8s8p3gqvhd" path="res://assets/soundfx/act 3.mp3" id="6_mn20l"]
 
 [sub_resource type="GDScript" id="GDScript_bfcjb"]
 script/source = "extends Node2D
@@ -18,6 +19,7 @@ script/source = "extends Node2D
 
 @export var interval: float = 1.5
 @export var score_needed: int = 7
+@onready var act_3: AudioStreamPlayer = $Act3
 
 var expected := \"\"
 var score := 0
@@ -26,6 +28,7 @@ var total := 0
 @onready var dialogue_label: Label = $DialogueLabel   # add a Label node for text
 
 func _ready() -> void:
+	act_3.play()
 	_show_new_arrow()
 	var timer := Timer.new()
 	timer.wait_time = interval
@@ -132,3 +135,6 @@ offset_top = 580.0
 offset_right = 211.0
 offset_bottom = 603.0
 label_settings = SubResource("LabelSettings_mn20l")
+
+[node name="Act3" type="AudioStreamPlayer" parent="." unique_id=31170309]
+stream = ExtResource("6_mn20l")

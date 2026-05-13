@@ -4,6 +4,8 @@ extends AnimatedSprite2D
 var intro_redirect_path = "res://game_backgrounds/disclaimer.tscn"
 
 func _ready() -> void:
+	if not BGMAct1.playing:
+		BGMAct1.play()
 	# 2. Start the animation
 	play("default") 
 	
@@ -26,3 +28,4 @@ func change_scene() -> void:
 		await $fade_transition/AnimationPlayer.animation_finished
 		
 	get_tree().change_scene_to_file(intro_redirect_path)
+	
