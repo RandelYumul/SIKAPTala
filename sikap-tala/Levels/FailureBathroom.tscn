@@ -1,13 +1,16 @@
 [gd_scene format=3 uid="uid://dhouc7cxjyi0t"]
 
 [ext_resource type="Texture2D" uid="uid://2ugegpbi7f4l" path="res://assets/pixel_art/pixel_folder/chaos_bathroom.png" id="1_q43mh"]
+[ext_resource type="AudioStream" uid="uid://coxrioisvjdaw" path="res://assets/soundfx/Shifted_BG02.wav" id="2_tl0tx"]
 
 [sub_resource type="GDScript" id="GDScript_q43mh"]
 script/source = "extends Node2D
 
 @onready var fade_rect: ColorRect = $FadeRect
+@onready var glitch_2: AudioStreamPlayer = $glitch2
 
 func _ready() -> void:
+	glitch_2.play()
 	fade_rect.hide()
 	fade_sequence()
 
@@ -49,3 +52,6 @@ texture = ExtResource("1_q43mh")
 offset_right = 1165.0
 offset_bottom = 753.0
 color = Color(0, 0, 0, 1)
+
+[node name="glitch2" type="AudioStreamPlayer" parent="." unique_id=605337728]
+stream = ExtResource("2_tl0tx")

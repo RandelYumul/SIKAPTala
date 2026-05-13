@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cicuemx8ygin4" path="res://assets/pixel_art/pixel_folder/glitch_hallway.png" id="6_dnc2n"]
 [ext_resource type="Texture2D" uid="uid://btvu4grhrdht" path="res://assets/pixel_art/pixel_folder/other_alex.PNG" id="8_xntkm"]
 [ext_resource type="Script" uid="uid://spawi3ytvawh" path="res://game_backgrounds/tobathroom.gd" id="9_rgqmt"]
+[ext_resource type="AudioStream" uid="uid://cjckl3wcoi6t2" path="res://assets/soundfx/Shifted_BG01.wav" id="10_1pnvr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rgqmt"]
 size = Vector2(20.5, 659)
@@ -296,6 +297,10 @@ offset_bottom = 402.0
 theme_override_fonts/font = ExtResource("5_xntkm")
 theme_override_font_sizes/font_size = 29
 text = "[E]"
+
+[node name="glitch" type="AudioStreamPlayer" parent="." unique_id=193521048]
+stream = ExtResource("10_1pnvr")
+volume_db = -17.0
 
 [connection signal="body_entered" from="glitch_hallway" to="glitch_hallway" method="_on_body_entered"]
 [connection signal="body_exited" from="glitch_hallway" to="glitch_hallway" method="_on_body_exited"]

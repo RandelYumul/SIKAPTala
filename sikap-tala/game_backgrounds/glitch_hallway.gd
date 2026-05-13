@@ -5,11 +5,13 @@ extends Area2D
 @onready var bathsign = $"../BathroomSign1"
 @onready var bathsign2 = $"../BathroomSign2"
 @onready var tobath = $"../tobathroom"
+@onready var glitch: AudioStreamPlayer = $"../glitch"
 
 var player_inside = false
 var transitioning = false
 
 func _ready() -> void:
+	glitch.play()
 	label.hide()
 
 func _on_body_entered(body):
@@ -47,5 +49,5 @@ func start_transition():
 	tobath.show()
 	
 	get_tree().call_group("player", "set_physics_process", true)
-	
+	glitch.stop()
 	set_deferred("monitoring", false)
