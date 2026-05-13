@@ -1,0 +1,208 @@
+[gd_scene format=3 uid="uid://buwurn5ik4mds"]
+
+[ext_resource type="Script" uid="uid://d0vcni133lqkp" path="res://game_backgrounds/bedroom_alternate.gd" id="1_i0f4u"]
+[ext_resource type="Script" uid="uid://dikw10u1uapq5" path="res://game_backgrounds/character_bedroom.gd" id="2_m8rp4"]
+[ext_resource type="PackedScene" uid="uid://dcaf236cqig03" path="res://character/alex.tscn" id="3_wsp75"]
+[ext_resource type="Texture2D" uid="uid://de3i1m8ue4k70" path="res://assets/pixel_art/pixel_folder/normal_bedroom.png" id="4_4q4qw"]
+[ext_resource type="PackedScene" uid="uid://sostiknc7q7v" path="res://game_backgrounds/fade_transition.tscn" id="5_58cxx"]
+[ext_resource type="PackedScene" uid="uid://cln88mwkrcnik" path="res://information/textbox.tscn" id="6_2iavk"]
+[ext_resource type="PackedScene" uid="uid://b8nj5gixpv23x" path="res://information/smaller_textbox.tscn" id="7_opdun"]
+[ext_resource type="Script" uid="uid://cfew5jiaii8jl" path="res://game_backgrounds/area_2d.gd" id="8_y0hnm"]
+[ext_resource type="FontFile" uid="uid://nlcknvwecnd8" path="res://fonts/8bitoperator_jve.ttf" id="9_iuohj"]
+[ext_resource type="Script" uid="uid://diai01dn2y6ug" path="res://game_backgrounds/drawer.gd" id="10_kg0yp"]
+[ext_resource type="PackedScene" uid="uid://hrr8svi648co" path="res://information/bedroom_puzzle.tscn" id="11_85stq"]
+[ext_resource type="PackedScene" uid="uid://c62hxm65edua3" path="res://information/key.tscn" id="12_1ohyb"]
+[ext_resource type="Script" uid="uid://de1sggavj3ckv" path="res://information/key.gd" id="13_ec13o"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ct300"]
+
+[sub_resource type="Animation" id="Animation_06xkc"]
+length = 1.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bed/NormalBedroom:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.39),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("character_bedroom/alex:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.39),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_ct300"]
+resource_name = "start bedroom"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bed/NormalBedroom:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("character_bedroom/alex:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.01, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v5k21"]
+_data = {
+&"RESET": SubResource("Animation_06xkc"),
+&"start bedroom": SubResource("Animation_ct300")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ct300"]
+size = Vector2(20.5, 659)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v5k21"]
+size = Vector2(1179, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mhkkq"]
+size = Vector2(45, 375)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4xisu"]
+size = Vector2(114, 122)
+
+[node name="bedroom_alternate" type="Node2D" unique_id=1318856281]
+script = ExtResource("1_i0f4u")
+
+[node name="character_bedroom" type="Node2D" parent="." unique_id=1187290311 groups=["player"]]
+script = ExtResource("2_m8rp4")
+
+[node name="alex" parent="character_bedroom" unique_id=895170818 groups=["player"] instance=ExtResource("3_wsp75")]
+visible = false
+z_index = 1
+position = Vector2(664, 464)
+
+[node name="bed" type="StaticBody2D" parent="." unique_id=1339424466]
+physics_material_override = SubResource("PhysicsMaterial_ct300")
+
+[node name="NormalBedroom" type="Sprite2D" parent="bed" unique_id=452810938]
+visible = false
+position = Vector2(575.5001, 324.99997)
+scale = Vector2(0.5620118, 0.5659722)
+texture = ExtResource("4_4q4qw")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="bed" unique_id=1176571195]
+position = Vector2(-1, 1)
+polygon = PackedVector2Array(800, 629, 830, 646, 1156, 648, 1158, 485, 940, 331, 814, 340)
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=796811925]
+z_index = -1
+offset_left = 2.0
+offset_top = 0.9999695
+offset_right = 1151.0
+offset_bottom = 651.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1732520928]
+libraries/ = SubResource("AnimationLibrary_v5k21")
+autoplay = &"start bedroom"
+
+[node name="fade_transition" parent="." unique_id=885321898 instance=ExtResource("5_58cxx")]
+self_modulate = Color(0, 0, 0, 1)
+offset_top = 1.0
+offset_bottom = 649.0
+
+[node name="Boundaries" type="StaticBody2D" parent="." unique_id=1008478991]
+
+[node name="left" type="CollisionShape2D" parent="Boundaries" unique_id=1712810857]
+position = Vector2(-11.75, 323)
+shape = SubResource("RectangleShape2D_ct300")
+
+[node name="right" type="CollisionShape2D" parent="Boundaries" unique_id=1311974470]
+position = Vector2(1166, 323)
+shape = SubResource("RectangleShape2D_ct300")
+
+[node name="up" type="CollisionShape2D" parent="Boundaries" unique_id=369581707]
+position = Vector2(571, -18)
+shape = SubResource("RectangleShape2D_v5k21")
+disabled = true
+
+[node name="down" type="CollisionShape2D" parent="Boundaries" unique_id=1908698052]
+position = Vector2(577, 666)
+shape = SubResource("RectangleShape2D_v5k21")
+disabled = true
+
+[node name="textbox" parent="." unique_id=288270788 instance=ExtResource("6_2iavk")]
+position = Vector2(-3, 3)
+
+[node name="smaller_textbox" parent="." unique_id=474257117 instance=ExtResource("7_opdun")]
+position = Vector2(834, 338)
+
+[node name="door" type="Area2D" parent="." unique_id=519910357 groups=["player"]]
+script = ExtResource("8_y0hnm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="door" unique_id=1364744120]
+position = Vector2(37.5, 442.5)
+shape = SubResource("RectangleShape2D_mhkkq")
+
+[node name="InteractionLabel" type="Label" parent="door" unique_id=760267866]
+z_index = 15
+offset_left = 12.0
+offset_top = 322.0
+offset_right = 65.0
+offset_bottom = 363.0
+theme_override_fonts/font = ExtResource("9_iuohj")
+theme_override_font_sizes/font_size = 29
+text = "[E]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="drawer" type="Area2D" parent="." unique_id=549726815]
+position = Vector2(37.5, 442.5)
+script = ExtResource("10_kg0yp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="drawer" unique_id=65834893]
+position = Vector2(553.5, 50.5)
+shape = SubResource("RectangleShape2D_4xisu")
+
+[node name="InteractionLabel" type="Label" parent="drawer" unique_id=1460863546]
+offset_left = 534.5
+offset_top = -11.5
+offset_right = 574.5
+offset_bottom = 11.5
+theme_override_fonts/font = ExtResource("9_iuohj")
+theme_override_font_sizes/font_size = 29
+text = "[E]"
+
+[node name="bedroom_puzzle" parent="." unique_id=97602183 instance=ExtResource("11_85stq")]
+visible = false
+z_index = 50
+position = Vector2(577, 322)
+
+[node name="key" parent="." unique_id=516696681 instance=ExtResource("12_1ohyb")]
+visible = false
+z_index = 50
+position = Vector2(606, 324)
+script = ExtResource("13_ec13o")
+
+[connection signal="body_entered" from="door" to="door" method="_on_body_entered"]
+[connection signal="body_exited" from="door" to="door" method="_on_body_exited"]
+[connection signal="body_entered" from="drawer" to="drawer" method="_on_body_entered"]
+[connection signal="body_exited" from="drawer" to="drawer" method="_on_body_exited"]

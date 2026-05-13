@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://b4tq55gso0gs1" path="res://game_backgrounds/main_menu.gd" id="2_t1bg3"]
 [ext_resource type="PackedScene" uid="uid://sostiknc7q7v" path="res://game_backgrounds/fade_transition.tscn" id="3_t1bg3"]
 [ext_resource type="Texture2D" uid="uid://d0g874efspug" path="res://assets/textbox assets/start.png" id="4_lg58n"]
-[ext_resource type="Texture2D" uid="uid://cq7wlaj6pb130" path="res://assets/textbox assets/Settings.png" id="5_0lmkw"]
 [ext_resource type="Texture2D" uid="uid://yv48gi8qopjm" path="res://assets/textbox assets/Quit.png" id="6_2vwqj"]
 [ext_resource type="Texture2D" uid="uid://cjb5y3fg0cb7h" path="res://assets/filler/shifted.png" id="7_e3a7b"]
 
@@ -31,20 +30,11 @@ offset_bottom = 40.0
 [node name="start_day" type="TextureButton" parent="main_menu/Control" unique_id=459855051]
 layout_mode = 0
 offset_left = 65.0
-offset_top = 303.0
-offset_right = 514.0
-offset_bottom = 470.0
-scale = Vector2(0.5, 0.5)
-texture_normal = ExtResource("4_lg58n")
-
-[node name="settings" type="TextureButton" parent="main_menu/Control" unique_id=2013803775]
-layout_mode = 0
-offset_left = 65.0
 offset_top = 385.0
 offset_right = 514.0
 offset_bottom = 552.0
 scale = Vector2(0.5, 0.5)
-texture_normal = ExtResource("5_0lmkw")
+texture_normal = ExtResource("4_lg58n")
 
 [node name="quit" type="TextureButton" parent="main_menu/Control" unique_id=1991212212]
 layout_mode = 0
@@ -61,6 +51,5 @@ visible = false
 [node name="fade_timer" type="Timer" parent="main_menu/fade_transition" unique_id=1308617008]
 
 [connection signal="pressed" from="main_menu/Control/start_day" to="main_menu" method="_on_button_pressed"]
-[connection signal="pressed" from="main_menu/Control/settings" to="main_menu" method="_on_settings_pressed"]
 [connection signal="pressed" from="main_menu/Control/quit" to="main_menu" method="_on_quit_pressed"]
 [connection signal="timeout" from="main_menu/fade_transition/fade_timer" to="main_menu" method="_on_fade_timer_timeout"]

@@ -42,7 +42,8 @@ func _input(event):
 				hide()
 				dialogue_finished.emit()
 				portrait.texture = null
-				get_tree().call_group("player", "set_physics_process", true)
+				if is_inside_tree():
+					get_tree().call_group("player", "set_physics_process", true)
 
 func display_message():
 	is_typing = true

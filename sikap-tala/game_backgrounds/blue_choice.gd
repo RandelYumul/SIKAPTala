@@ -13,4 +13,4 @@ func _on_animation_finished(anim_name: String) -> void:
 	if anim_name == "blue_choice":
 		print("Blue choice animation finished")
 
-		get_tree().change_scene_to_file("res://game_backgrounds/bedroom.tscn")
+		get_tree().change_scene_to_file("res://game_backgrounds/intro.tscn")

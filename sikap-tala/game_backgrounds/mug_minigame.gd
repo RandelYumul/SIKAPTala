@@ -193,7 +193,11 @@ func end_minigame():
 			# Step 3: Settle into a dim, creepy lighting over 1.5 seconds 
 			# Color(0.5, 0.5, 0.6) is about 50% brightness with a slight blue/cold tint
 			light_sequence.tween_property(ambient_light, "color", Color(0.5, 0.5, 0.6, 1.0), 1.5)
+			# WAIT for tween to finish before switching scene
+			await light_sequence.finished
 
+		# --- GO TO GAME OVER SCENE ---
+		get_tree().change_scene_to_file("res://game_backgrounds/game_over.tscn")
 # --- NEW: FLICKER HELPER FUNCTIONS ---
 func _start_flicker():
 	# This creates a repeating flicker effect

@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://dof7abnm32hag" path="res://assets/pixel_art/pixel_folder/normal_bathroom.png" id="1_8n3id"]
 [ext_resource type="PackedScene" uid="uid://dcaf236cqig03" path="res://character/alex.tscn" id="2_a5yuf"]
+[ext_resource type="Script" uid="uid://c8t7eewlo5k8a" path="res://Levels/next_scene.gd" id="3_rfv5w"]
+[ext_resource type="FontFile" uid="uid://nlcknvwecnd8" path="res://fonts/8bitoperator_jve.ttf" id="4_tnmmy"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_f86hw"]
 
@@ -17,6 +19,9 @@ size = Vector2(476.75, 650.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2xbx"]
 size = Vector2(1151, 15)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m8s2d"]
+size = Vector2(108, 280)
+
 [node name="SuccessBathroom" type="Node2D" unique_id=1374624121]
 
 [node name="NormalBathroom" type="Sprite2D" parent="." unique_id=2061383685]
@@ -24,7 +29,7 @@ position = Vector2(575.5, 336.25)
 scale = Vector2(0.559082, 0.5776909)
 texture = ExtResource("1_8n3id")
 
-[node name="alex" parent="." unique_id=1752237224 instance=ExtResource("2_a5yuf")]
+[node name="alex" parent="." unique_id=1752237224 groups=["player"] instance=ExtResource("2_a5yuf")]
 position = Vector2(357, 456)
 
 [node name="Boundary" type="StaticBody2D" parent="." unique_id=1097878374]
@@ -50,3 +55,25 @@ shape = SubResource("RectangleShape2D_f7crp")
 [node name="top" type="CollisionShape2D" parent="Boundary" unique_id=2001054741]
 position = Vector2(1619.5, 574.5)
 shape = SubResource("RectangleShape2D_g2xbx")
+
+[node name="next_scene" type="Area2D" parent="." unique_id=1057053412]
+script = ExtResource("3_rfv5w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="next_scene" unique_id=389775247]
+position = Vector2(118, 519)
+shape = SubResource("RectangleShape2D_m8s2d")
+
+[node name="InteractionLabel" type="Label" parent="next_scene" unique_id=392404699]
+z_index = 15
+offset_left = 116.0
+offset_top = 378.0
+offset_right = 169.0
+offset_bottom = 419.0
+theme_override_fonts/font = ExtResource("4_tnmmy")
+theme_override_font_sizes/font_size = 29
+text = "[E]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="next_scene" to="next_scene" method="_on_body_entered"]
+[connection signal="body_exited" from="next_scene" to="next_scene" method="_on_body_exited"]

@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://d1dt4mjt2qaeo"]
+
+[ext_resource type="Texture2D" uid="uid://cp7646yx0hypg" path="res://assets/filler/hospital.png" id="1_2my2c"]
+[ext_resource type="Script" uid="uid://dakkghg5qhmsi" path="res://game_backgrounds/hospital.gd" id="1_omqpm"]
+[ext_resource type="PackedScene" uid="uid://dcaf236cqig03" path="res://character/alex.tscn" id="2_ghh7j"]
+[ext_resource type="FontFile" uid="uid://nlcknvwecnd8" path="res://fonts/8bitoperator_jve.ttf" id="3_dgnct"]
+[ext_resource type="Script" uid="uid://cf8n365gm3w41" path="res://game_backgrounds/cabinet.gd" id="3_t5iam"]
+[ext_resource type="Texture2D" uid="uid://eodu0fkti4xg" path="res://assets/filler/file.png" id="6_lsx4h"]
+[ext_resource type="Texture2D" uid="uid://vnrffuugakwp" path="res://assets/filler/open_file.png" id="7_lsx4h"]
+[ext_resource type="PackedScene" uid="uid://cln88mwkrcnik" path="res://information/textbox.tscn" id="8_mwx6k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ghh7j"]
+size = Vector2(20.5, 659)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dgnct"]
+size = Vector2(1179, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_go4wc"]
+size = Vector2(211, 277)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t5iam"]
+size = Vector2(191, 168)
+
+[node name="hospital" type="Node2D" unique_id=1302565271]
+script = ExtResource("1_omqpm")
+
+[node name="Hospital" type="Sprite2D" parent="." unique_id=294134905]
+position = Vector2(580, 328)
+scale = Vector2(0.5625, 0.5642361)
+texture = ExtResource("1_2my2c")
+
+[node name="Boundaries" type="StaticBody2D" parent="." unique_id=639622853]
+
+[node name="left" type="CollisionShape2D" parent="Boundaries" unique_id=690017015]
+position = Vector2(-11.75, 323)
+shape = SubResource("RectangleShape2D_ghh7j")
+
+[node name="right" type="CollisionShape2D" parent="Boundaries" unique_id=2099444370]
+position = Vector2(1166, 323)
+shape = SubResource("RectangleShape2D_ghh7j")
+
+[node name="up" type="CollisionShape2D" parent="Boundaries" unique_id=61848903]
+position = Vector2(571, -18)
+shape = SubResource("RectangleShape2D_dgnct")
+disabled = true
+
+[node name="down" type="CollisionShape2D" parent="Boundaries" unique_id=484275793]
+position = Vector2(577, 666)
+shape = SubResource("RectangleShape2D_dgnct")
+disabled = true
+
+[node name="cabinet" type="CollisionShape2D" parent="Boundaries" unique_id=1654662225]
+position = Vector2(1046.5, 493)
+shape = SubResource("RectangleShape2D_go4wc")
+
+[node name="alex" parent="." unique_id=1752237224 groups=["player"] instance=ExtResource("2_ghh7j")]
+position = Vector2(435, 446)
+
+[node name="cabinet" type="Area2D" parent="." unique_id=1689248414]
+script = ExtResource("3_t5iam")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cabinet" unique_id=1717514734]
+position = Vector2(941, 532)
+shape = SubResource("RectangleShape2D_t5iam")
+
+[node name="InteractionLabel" type="Label" parent="cabinet" unique_id=1898548921]
+offset_left = 943.0
+offset_top = 448.0
+offset_right = 983.0
+offset_bottom = 478.0
+theme_override_fonts/font = ExtResource("3_dgnct")
+theme_override_font_sizes/font_size = 29
+text = "[E]"
+
+[node name="File" type="Sprite2D" parent="." unique_id=193896650]
+position = Vector2(590, 321.00003)
+scale = Vector2(0.57100594, 0.57100594)
+texture = ExtResource("6_lsx4h")
+
+[node name="OpenFile" type="Sprite2D" parent="." unique_id=1000945387]
+position = Vector2(583.9999, 324)
+scale = Vector2(0.45746526, 0.4574653)
+texture = ExtResource("7_lsx4h")
+
+[node name="textbox" parent="." unique_id=288270788 instance=ExtResource("8_mwx6k")]
+
+[connection signal="body_entered" from="cabinet" to="cabinet" method="_on_body_entered"]
+[connection signal="body_exited" from="cabinet" to="cabinet" method="_on_body_exited"]
