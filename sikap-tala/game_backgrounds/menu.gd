@@ -25,7 +25,7 @@ func _ready():
 # ─────────────────────────────
 
 func _on_stay_pressed():
-	go_to_scene("res://game_backgrounds/bedroom.tscn")
+	go_to_scene("res://game_backgrounds/glitch_bedroom.tscn")
 
 func _on_wake_pressed():
 	go_to_scene("res://game_backgrounds/bedroom.tscn")

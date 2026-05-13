@@ -1,0 +1,378 @@
+[gd_scene format=3 uid="uid://b07tiky0xlw5n"]
+
+[ext_resource type="Script" uid="uid://nuaq4w8xlrt4" path="res://game_backgrounds/game_over.gd" id="1_keq3w"]
+[ext_resource type="Texture2D" uid="uid://cdkxi0fp5q5ym" path="res://assets/gif/frame_00_delay-0.06s.png" id="2_1074h"]
+[ext_resource type="Texture2D" uid="uid://dhh65tfykmhj6" path="res://assets/gif/frame_01_delay-0.06s.png" id="3_elbvf"]
+[ext_resource type="Texture2D" uid="uid://bbq84elwmecc0" path="res://assets/gif/frame_02_delay-0.06s.png" id="4_xofg7"]
+[ext_resource type="Texture2D" uid="uid://ccqx48wopxy3j" path="res://assets/gif/frame_03_delay-0.06s.png" id="5_be8k0"]
+[ext_resource type="Texture2D" uid="uid://csdgvmkfxiac3" path="res://assets/gif/frame_04_delay-0.06s.png" id="6_nayg4"]
+[ext_resource type="Texture2D" uid="uid://0bwyni81422q" path="res://assets/gif/frame_05_delay-0.06s.png" id="7_hfky4"]
+[ext_resource type="Texture2D" uid="uid://dqibxyarfgjox" path="res://assets/gif/frame_06_delay-0.06s.png" id="8_wu1tr"]
+[ext_resource type="Texture2D" uid="uid://c8qkcvwub1gqo" path="res://assets/gif/frame_07_delay-0.06s.png" id="9_jcvib"]
+[ext_resource type="Texture2D" uid="uid://8dxk03gkdf6" path="res://assets/gif/frame_08_delay-0.06s.png" id="10_vo17g"]
+[ext_resource type="Texture2D" uid="uid://cyqxiv3g6iojc" path="res://assets/gif/frame_09_delay-0.06s.png" id="11_jvl4v"]
+[ext_resource type="Texture2D" uid="uid://d2ewcq60dhhms" path="res://assets/gif/frame_10_delay-0.06s.png" id="12_nqfb8"]
+[ext_resource type="Texture2D" uid="uid://btddce34a1qwy" path="res://assets/gif/frame_11_delay-0.06s.png" id="13_thcqc"]
+[ext_resource type="Texture2D" uid="uid://4h4ervvygf3u" path="res://assets/gif/frame_12_delay-0.06s.png" id="14_3no3g"]
+[ext_resource type="Texture2D" uid="uid://tjja4us6d2do" path="res://assets/gif/frame_13_delay-0.06s.png" id="15_nlvfr"]
+[ext_resource type="Texture2D" uid="uid://cd3bi0sqkl7bx" path="res://assets/gif/frame_14_delay-0.06s.png" id="16_ko3go"]
+[ext_resource type="Texture2D" uid="uid://bbk4vyxox8cap" path="res://assets/gif/frame_15_delay-0.06s.png" id="17_0h28e"]
+[ext_resource type="Texture2D" uid="uid://yupcnmglo22u" path="res://assets/gif/frame_16_delay-0.06s.png" id="18_pl552"]
+[ext_resource type="Texture2D" uid="uid://dnwrx345fngoj" path="res://assets/gif/frame_17_delay-0.06s.png" id="19_savrh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_et6qv"]
+
+[sub_resource type="Animation" id="Animation_mqnyl"]
+resource_name = "intro"
+length = 1.1666666
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0009999999, 0.06),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Frame01Delay0_06s:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0009999999, 0.12),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Frame02Delay0_06s:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0009999999, 0.18),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Frame03Delay0_06s:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.0009999999, 0.24),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Frame05Delay0_06s:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.0009999999, 0.36),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Frame04Delay0_06s:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.0009999999, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Frame06Delay0_06s:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.0009999999, 0.42),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../Frame07Delay0_06s:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.0009999999, 0.48),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../Frame08Delay0_06s:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.0009999999, 0.54),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../Frame09Delay0_06s:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.0009999999, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../Frame10Delay0_06s:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.0009999999, 0.66),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../Frame11Delay0_06s:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0.0009999999, 0.72),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("../Frame12Delay0_06s:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0.0009999999, 0.78),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("../Frame13Delay0_06s:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0.0009999999, 0.84),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("../Frame14Delay0_06s:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0.0009999999, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("../Frame15Delay0_06s:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0.0009999999, 0.96),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("../Frame16Delay0_06s:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0.0009999999, 1.02),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("../Frame17Delay0_06s:visible")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0.0009999999, 1.08),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_tgyy3"]
+resource_name = "title"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Node2D/Shifted:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.99),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Node2D/RichTextLabel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.72),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mtl8i"]
+_data = {
+&"intro": SubResource("Animation_mqnyl"),
+&"title": SubResource("Animation_tgyy3")
+}
+
+[node name="game_over" type="AnimatedSprite2D" unique_id=682325854]
+sprite_frames = SubResource("SpriteFrames_et6qv")
+frame_progress = 0.33333334
+script = ExtResource("1_keq3w")
+
+[node name="Frame00Delay0_06s" type="Sprite2D" parent="." unique_id=1573916183]
+position = Vector2(576, 324)
+scale = Vector2(1.528, 1.5308057)
+texture = ExtResource("2_1074h")
+
+[node name="Frame01Delay0_06s" type="Sprite2D" parent="." unique_id=998955566]
+position = Vector2(578, 326.408)
+scale = Vector2(1.528, 1.528)
+texture = ExtResource("3_elbvf")
+
+[node name="Frame02Delay0_06s" type="Sprite2D" parent="." unique_id=470018214]
+position = Vector2(578, 326.408)
+scale = Vector2(1.528, 1.528)
+texture = ExtResource("4_xofg7")
+
+[node name="Frame03Delay0_06s" type="Sprite2D" parent="." unique_id=1198890992]
+position = Vector2(578, 326.408)
+scale = Vector2(1.528, 1.528)
+texture = ExtResource("5_be8k0")
+
+[node name="Frame04Delay0_06s" type="Sprite2D" parent="." unique_id=1303130622]
+position = Vector2(578, 326.408)
+scale = Vector2(1.528, 1.528)
+texture = ExtResource("6_nayg4")
+
+[node name="Frame05Delay0_06s" type="Sprite2D" parent="." unique_id=1803204161]
+position = Vector2(578, 326.408)
+scale = Vector2(1.528, 1.528)
+texture = ExtResource("7_hfky4")
+
+[node name="Frame06Delay0_06s" type="Sprite2D" parent="." unique_id=491219767]
+position = Vector2(578, 326.408)
+scale = Vector2(1.528, 1.528)
+texture = ExtResource("8_wu1tr")
+
+[node name="Frame07Delay0_06s" type="Sprite2D" parent="." unique_id=1493212623]
+position = Vector2(578, 326.408)
+scale = Vector2(1.528, 1.528)
+texture = ExtResource("9_jcvib")
+
+[node name="Frame08Delay0_06s" type="Sprite2D" parent="." unique_id=61115017]
+position = Vector2(578, 326.408)
+scale = Vector2(1.528, 1.528)
+texture = ExtResource("10_vo17g")
+
+[node name="Frame09Delay0_06s" type="Sprite2D" parent="." unique_id=1228016055]
+position = Vector2(578, 326.408)
+scale = Vector2(1.528, 1.528)
+texture = ExtResource("11_jvl4v")
+
+[node name="Frame10Delay0_06s" type="Sprite2D" parent="." unique_id=1906713551]
+position = Vector2(578, 326.408)
+scale = Vector2(1.528, 1.528)
+texture = ExtResource("12_nqfb8")
+
+[node name="Frame11Delay0_06s" type="Sprite2D" parent="." unique_id=893914621]
+position = Vector2(578, 326.408)
+scale = Vector2(1.528, 1.528)
+texture = ExtResource("13_thcqc")
+
+[node name="Frame12Delay0_06s" type="Sprite2D" parent="." unique_id=1496641433]
+position = Vector2(578, 326.408)
+scale = Vector2(1.528, 1.528)
+texture = ExtResource("14_3no3g")
+
+[node name="Frame13Delay0_06s" type="Sprite2D" parent="." unique_id=207395552]
+position = Vector2(578, 326.408)
+scale = Vector2(1.528, 1.528)
+texture = ExtResource("15_nlvfr")
+
+[node name="Frame14Delay0_06s" type="Sprite2D" parent="." unique_id=16697286]
+position = Vector2(578, 326.408)
+scale = Vector2(1.528, 1.528)
+texture = ExtResource("16_ko3go")
+
+[node name="Frame15Delay0_06s" type="Sprite2D" parent="." unique_id=983784136]
+position = Vector2(578, 326.408)
+scale = Vector2(1.528, 1.528)
+texture = ExtResource("17_0h28e")
+
+[node name="Frame16Delay0_06s" type="Sprite2D" parent="." unique_id=520562770]
+position = Vector2(578, 326.408)
+scale = Vector2(1.528, 1.528)
+texture = ExtResource("18_pl552")
+
+[node name="Frame17Delay0_06s" type="Sprite2D" parent="." unique_id=665353445]
+position = Vector2(578, 326.408)
+scale = Vector2(1.528, 1.528)
+texture = ExtResource("19_savrh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1079405637]
+root_node = NodePath("../Frame00Delay0_06s")
+libraries/ = SubResource("AnimationLibrary_mtl8i")
+autoplay = &"intro"

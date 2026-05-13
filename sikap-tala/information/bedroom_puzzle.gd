@@ -79,7 +79,7 @@ func _on_enter_pressed():
 		_reset_puzzle()
 
 		if wrong_count >= 3:
-			get_tree().change_scene_to_file("res://game_backgrounds/bedroom.tscn")
+			get_tree().change_scene_to_file("res://game_backgrounds/bedroom_gameover.tscn")
 
 func _reset_puzzle():
 	for box in [box1, box2, box3, box4]:

@@ -1,0 +1,184 @@
+[gd_scene format=3 uid="uid://cfgocdru5r0w2"]
+
+[ext_resource type="Texture2D" uid="uid://kd7a8uepa0ce" path="res://assets/filler/blue_choice2.png" id="1_be8ge"]
+[ext_resource type="Script" uid="uid://bwnhjqhedbdoa" path="res://game_backgrounds/blue_choice.gd" id="1_eumne"]
+[ext_resource type="PackedScene" uid="uid://dcaf236cqig03" path="res://character/alex.tscn" id="2_eumne"]
+[ext_resource type="FontFile" uid="uid://nlcknvwecnd8" path="res://fonts/8bitoperator_jve.ttf" id="3_m57fp"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_m2x5p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_82fq8"]
+size = Vector2(20.5, 659)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ajubj"]
+size = Vector2(1179, 34)
+
+[sub_resource type="Animation" id="Animation_udeik"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlueChoice2/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.3254902)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RichTextLabel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RichTextLabel2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ChaosVoid/ColorRect:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.7764706)]
+}
+
+[sub_resource type="Animation" id="Animation_vqfsu"]
+resource_name = "blue_choice"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlueChoice2/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.56),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.57254905), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RichTextLabel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RichTextLabel2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_786f8"]
+_data = {
+&"RESET": SubResource("Animation_udeik"),
+&"blue_choice": SubResource("Animation_vqfsu")
+}
+
+[node name="blue_choice" type="Node2D" unique_id=392836465]
+script = ExtResource("1_eumne")
+
+[node name="BlueChoice2" type="Sprite2D" parent="." unique_id=2056062522]
+position = Vector2(578, 325.5)
+scale = Vector2(0.56347656, 0.5616319)
+texture = ExtResource("1_be8ge")
+
+[node name="ColorRect" type="ColorRect" parent="BlueChoice2" unique_id=1849644787]
+offset_left = -1024.0
+offset_top = -574.21954
+offset_right = 1024.0
+offset_bottom = 577.7806
+color = Color(0, 0, 0, 0.3254902)
+
+[node name="kitchen" type="StaticBody2D" parent="." unique_id=982404142]
+physics_material_override = SubResource("PhysicsMaterial_m2x5p")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="kitchen" unique_id=1311768660]
+position = Vector2(-798, 1)
+polygon = PackedVector2Array(800, 629, 830, 646, 1122, 650, 1111, 478, 1078, 452, 814, 340)
+
+[node name="alex" parent="." unique_id=1752237224 instance=ExtResource("2_eumne")]
+position = Vector2(538, 468)
+
+[node name="Boundaries" type="StaticBody2D" parent="." unique_id=437542386]
+
+[node name="left" type="CollisionShape2D" parent="Boundaries" unique_id=596029306]
+position = Vector2(-11.75, 323)
+shape = SubResource("RectangleShape2D_82fq8")
+
+[node name="right" type="CollisionShape2D" parent="Boundaries" unique_id=2082793694]
+position = Vector2(1166, 323)
+shape = SubResource("RectangleShape2D_82fq8")
+
+[node name="up" type="CollisionShape2D" parent="Boundaries" unique_id=1313534223]
+position = Vector2(571, -18)
+shape = SubResource("RectangleShape2D_ajubj")
+disabled = true
+
+[node name="down" type="CollisionShape2D" parent="Boundaries" unique_id=1627759099]
+position = Vector2(577, 666)
+shape = SubResource("RectangleShape2D_ajubj")
+disabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1231895959]
+libraries/ = SubResource("AnimationLibrary_786f8")
+autoplay = &"blue_choice"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=832108627]
+z_index = 101
+offset_top = -4.0
+offset_right = 1153.0
+offset_bottom = 162.00003
+theme_override_fonts/normal_font = ExtResource("3_m57fp")
+theme_override_font_sizes/normal_font_size = 30
+text = "Mother: “Good. Focus on what makes sense.”"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1128622513]
+modulate = Color(1, 1, 1, 0)
+z_index = 101
+offset_left = -2.0
+offset_top = 483.99997
+offset_right = 1151.0
+offset_bottom = 650.0
+theme_override_fonts/normal_font = ExtResource("3_m57fp")
+theme_override_font_sizes/normal_font_size = 30
+text = "System: “Structure stabilized.”"
+horizontal_alignment = 1
+vertical_alignment = 1

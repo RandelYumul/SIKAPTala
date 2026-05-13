@@ -12,12 +12,12 @@ func _ready() -> void:
 
 
 func _on_button1_pressed() -> void:
-	get_tree().change_scene_to_file("res://game_backgrounds/bedroom.tscn")
+	get_tree().change_scene_to_file("res://game_backgrounds/blue_choice.tscn")
 
 
 func _on_button2_pressed() -> void:
-	get_tree().change_scene_to_file("res://game_backgrounds/hallway.tscn")
+	get_tree().change_scene_to_file("res://game_backgrounds/red_choice.tscn")
 
 
 func _on_button3_pressed() -> void:
-	get_tree().change_scene_to_file("res://game_backgrounds/kitchen.tscn")
+	get_tree().change_scene_to_file("res://game_backgrounds/yellow_choice.tscn")

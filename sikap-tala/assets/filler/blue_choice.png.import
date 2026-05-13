@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0aeo30x1hkor"
-path="res://.godot/imported/mirror.png-029fefcad31bc974d9cdb104116e9886.ctex"
+uid="uid://ckb8xk8ti2lqu"
+path="res://.godot/imported/blue_choice.png-bb42709b7afb914f8275c268c046e5aa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/pixel_art/pixel_folder/mirror.png"
-dest_files=["res://.godot/imported/mirror.png-029fefcad31bc974d9cdb104116e9886.ctex"]
+source_file="res://assets/filler/blue_choice.png"
+dest_files=["res://.godot/imported/blue_choice.png-bb42709b7afb914f8275c268c046e5aa.ctex"]
 
 [params]
 
